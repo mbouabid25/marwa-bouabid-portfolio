@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AFCON 2025 — Marwa Bouabid</title>
+<title>AFCON 2025 Prediction Engine — Marwa Bouabid</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -26,58 +26,24 @@ a{color:inherit;text-decoration:none;}
 #cdot{width:4px;height:4px;background:var(--acc);}
 #cring{width:28px;height:28px;border:1px solid rgba(168,204,232,.3);transition:width .35s var(--ease),height .35s var(--ease),border-color .2s;}
 .ch #cring{width:52px;height:52px;border-color:var(--acc);}
-
-/* NAV */
-.pnav{
-  position:sticky;top:0;z-index:100;background:var(--bg);
-  padding:1.5rem clamp(1.5rem,5vw,5rem);
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--surf);
-}
-.back-btn{
-  display:flex;align-items:center;gap:.75rem;
-  font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--text2);cursor:none;background:none;border:none;
-  transition:color .25s;
-}
+.pnav{position:sticky;top:0;z-index:100;background:var(--bg);padding:1.5rem clamp(1.5rem,5vw,5rem);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--surf);}
+.back-btn{display:flex;align-items:center;gap:.75rem;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text2);cursor:none;background:none;border:none;transition:color .25s;}
 .back-btn:hover{color:var(--acc);}
-.back-arrow{
-  width:32px;height:32px;border:1px solid var(--surf);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:.8rem;
-  transition:border-color .3s,transform .4s var(--ease);
-}
+.back-arrow{width:32px;height:32px;border:1px solid var(--surf);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:border-color .3s,transform .4s var(--ease);}
 .back-btn:hover .back-arrow{border-color:var(--acc);transform:translateX(-4px);}
 .nav-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);}
-
-/* HERO */
-.p-hero{
-  padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem) clamp(3rem,6vh,5rem);
-  border-bottom:1px solid var(--surf);
-}
+.p-hero{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem) clamp(3rem,6vh,5rem);border-bottom:1px solid var(--surf);}
 .p-cat{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;}
-.p-title{
-  font-family:var(--f-d);
-  font-size:clamp(2.75rem,8vw,8.5rem);
-  font-weight:300;line-height:.88;letter-spacing:-.025em;margin-bottom:2rem;
-}
+.p-title{font-family:var(--f-d);font-size:clamp(2.75rem,8vw,8.5rem);font-weight:300;line-height:.88;letter-spacing:-.025em;margin-bottom:2rem;}
 .p-title em{font-style:italic;color:var(--text2);}
 .p-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
 .p-tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--surf);padding:.3em .8em;color:var(--text2);}
 .p-tag.hi{border-color:var(--acc-d);color:var(--acc);}
-.p-meta{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
-  padding-top:2rem;border-top:1px solid var(--surf);
-}
+.p-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding-top:2rem;border-top:1px solid var(--surf);}
 .p-meta-cell p:first-child{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
 .p-meta-cell p:last-child{font-size:.8rem;color:var(--text2);}
-
-/* BODY */
 .p-body{display:grid;grid-template-columns:1fr 1.6fr;}
-.p-sidebar{
-  padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);
-  border-right:1px solid var(--surf);
-  position:sticky;top:73px;height:fit-content;
-}
+.p-sidebar{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-right:1px solid var(--surf);position:sticky;top:73px;height:fit-content;}
 .p-side-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;}
 .p-stat{padding:1.25rem 0;border-bottom:1px solid var(--surf);}
 .p-stat-num{font-family:var(--f-d);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;color:var(--acc);letter-spacing:-.02em;line-height:1;}
@@ -88,70 +54,249 @@ a{color:inherit;text-decoration:none;}
 .p-section{margin-bottom:3.5rem;}
 .p-section-lbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--surf);}
 .p-section p{font-size:.9375rem;color:var(--text2);line-height:1.85;margin-bottom:1rem;}
-.p-section p:last-child{margin-bottom:0;}
 .p-section strong{color:var(--text);font-weight:400;}
 .p-bullets{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem;}
 .p-bullets li{font-size:.875rem;color:var(--text2);line-height:1.75;padding-left:1.2em;position:relative;}
 .p-bullets li::before{content:"—";position:absolute;left:0;color:var(--acc-d);}
 
-/* NEXT */
-.p-next{
-  border-top:1px solid var(--surf);
-  padding:3rem clamp(1.5rem,5vw,5rem);
-  display:flex;align-items:center;justify-content:space-between;
-  cursor:none;transition:background .35s;text-decoration:none;
-}
+/* ── VIZ ── */
+.viz-section{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-top:1px solid var(--surf);}
+.viz-title{font-family:var(--f-d);font-size:clamp(1.5rem,3vw,2.8rem);font-weight:300;letter-spacing:-.015em;margin-bottom:.4rem;}
+.viz-title em{font-style:italic;color:var(--text2);}
+.viz-sub{font-size:.78rem;color:var(--text3);margin-bottom:2rem;letter-spacing:.04em;}
+
+/* Pipeline */
+.pipeline{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem;}
+.pipe-node{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem 1.3rem;min-width:8.5rem;flex-shrink:0;}
+.pipe-node.hl{border-color:var(--acc-d);}
+.pipe-node-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
+.pipe-node-name{font-family:var(--f-d);font-size:1rem;color:var(--text);font-style:italic;line-height:1.2;margin-bottom:.3rem;}
+.pipe-node-sub{font-size:.62rem;color:var(--text3);line-height:1.5;}
+.pipe-arr{display:flex;align-items:center;color:var(--text3);padding:0 .4rem;font-size:.85rem;flex-shrink:0;}
+
+/* Results */
+.results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;}
+.result-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.75rem;background:var(--bg-s);border:1px solid var(--surf);padding:.8rem 1rem;}
+.result-team{font-size:.8rem;color:var(--text2);}
+.result-team.ra{text-align:right;}
+.result-score{font-family:var(--f-d);font-size:1.35rem;font-weight:300;color:var(--acc);text-align:center;white-space:nowrap;}
+.result-meta{font-size:.58rem;color:var(--text3);letter-spacing:.08em;text-align:center;margin-top:.15rem;}
+
+/* Standings */
+.groups-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.group-card{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem;}
+.group-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.7rem;}
+.gtable{width:100%;border-collapse:collapse;font-size:.75rem;}
+.gtable th{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);font-weight:400;padding:.25rem .35rem;border-bottom:1px solid var(--surf);text-align:right;}
+.gtable th:first-child{text-align:left;}
+.gtable td{padding:.38rem .35rem;border-bottom:1px solid rgba(16,30,48,.7);color:var(--text2);text-align:right;}
+.gtable td:first-child{text-align:left;color:var(--text);}
+.gtable tr:last-child td{border-bottom:none;}
+.gtable tr.q td:first-child{color:var(--acc);}
+.gtable tr.q td{background:rgba(168,204,232,.03);}
+.pts{color:var(--acc);font-weight:500;}
+
+/* Odds */
+.odds-wrap{display:flex;flex-direction:column;gap:.55rem;}
+.odds-row{display:flex;align-items:center;gap:1rem;}
+.odds-team{font-size:.8rem;color:var(--text2);min-width:9rem;}
+.odds-bar-bg{flex:1;height:20px;background:var(--bg-s);border:1px solid var(--surf);overflow:hidden;}
+.odds-bar{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));width:0;transition:width 1.4s var(--ease);}
+.odds-pct{font-size:.72rem;color:var(--text3);min-width:3rem;text-align:right;}
+.odds-row.leader .odds-team{color:var(--text);}
+.odds-row.leader .odds-pct{color:var(--acc);}
+
+/* Match probs */
+.mp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.mp-card{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem;}
+.mp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;}
+.mp-team{font-size:.78rem;color:var(--text2);}
+.mp-vs{font-size:.6rem;color:var(--text3);}
+.mp-bar{display:flex;height:10px;overflow:hidden;gap:1px;margin-bottom:.45rem;border-radius:1px;}
+.mph{background:var(--acc);}
+.mpd{background:var(--surf2);}
+.mpa{background:var(--acc-d);}
+.mp-leg{display:flex;justify-content:space-between;}
+.mp-leg span{font-size:.64rem;}
+.mp-date{font-size:.56rem;color:var(--text3);letter-spacing:.1em;margin-top:.55rem;padding-top:.55rem;border-top:1px solid var(--surf);}
+
+/* Scenarios */
+.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.sc-card{background:var(--bg-s);border:1px solid var(--surf);padding:1.2rem;}
+.sc-card.base{border-color:var(--acc-d);}
+.sc-name{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:.6rem;}
+.sc-champ{font-family:var(--f-d);font-size:1.5rem;font-weight:300;color:var(--acc);line-height:1;margin-bottom:.45rem;}
+.sc-detail{font-size:.72rem;color:var(--text3);line-height:1.55;}
+
+.p-next{border-top:1px solid var(--surf);padding:3rem clamp(1.5rem,5vw,5rem);display:flex;align-items:center;justify-content:space-between;cursor:none;transition:background .35s;}
 .p-next:hover{background:var(--bg-s);}
 .p-next-lbl{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.4rem;}
 .p-next-title{font-family:var(--f-d);font-size:clamp(1.2rem,2.5vw,2.2rem);font-weight:300;color:var(--text);}
-.p-next-arrow{
-  width:48px;height:48px;border:1px solid var(--surf);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text3);
-  transition:border-color .3s,color .3s,transform .4s var(--ease);flex-shrink:0;
-}
+.p-next-arrow{width:48px;height:48px;border:1px solid var(--surf);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text3);transition:border-color .3s,color .3s,transform .4s var(--ease);flex-shrink:0;}
 .p-next:hover .p-next-arrow{border-color:var(--acc);color:var(--acc);transform:rotate(45deg);}
-
-/* FOOTER */
 footer{border-top:1px solid var(--surf);padding:2.5rem clamp(1.5rem,5vw,5rem);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;}
 .f-logo{font-family:var(--f-d);font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);font-style:italic;}
 footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 
-@media(max-width:800px){
+@media(max-width:960px){
   .p-body{grid-template-columns:1fr;}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
+  .groups-grid,.sc-grid{grid-template-columns:1fr 1fr;}
+  .results-grid,.mp-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .groups-grid,.sc-grid{grid-template-columns:1fr;}
+  .pipeline{flex-direction:column;}
+  .pipe-arr{transform:rotate(90deg);}
 }
 </style>
 </head>
 <body>
-<div id="cdot"></div>
-<div id="cring"></div>
+<div id="cdot"></div><div id="cring"></div>
 
 <nav class="pnav">
   <a class="back-btn" href="marwa-portfolio.html">
-    <span class="back-arrow">←</span>
+    <span class="back-arrow">&#8592;</span>
     Back to portfolio
   </a>
   <span class="nav-label">05 / 09</span>
 </nav>
 
 <div class="p-hero">
-  <div class="p-cat">Machine Learning · Sports Analytics</div>
-  <h1 class="p-title">AFCON 2025<br>Prediction<br><em>Engine</em><br></h1>
-  <div class="p-tags"><span class="p-tag hi">ML / Predictive</span><span class="p-tag">Poisson Model</span><span class="p-tag">CNN</span><span class="p-tag">Monte Carlo</span><span class="p-tag">Python</span></div>
-  <div class="p-meta"><div class="p-meta-cell"><p>Type</p><p>Independent Project</p></div><div class="p-meta-cell"><p>Tournament</p><p>AFCON 2025</p></div><div class="p-meta-cell"><p>Stack</p><p>Python, TensorFlow, scipy</p></div><div class="p-meta-cell"><p>Year</p><p>2025</p></div></div>
+  <div class="p-cat">Machine Learning &middot; Sports Analytics &middot; AFCON 2025</div>
+  <h1 class="p-title">AFCON 2025<br><em>Prediction</em><br>Engine</h1>
+  <div class="p-tags">
+    <span class="p-tag hi">ML / Predictive</span>
+    <span class="p-tag">Poisson Model</span>
+    <span class="p-tag">CNN</span>
+    <span class="p-tag">Monte Carlo</span>
+    <span class="p-tag">Python</span>
+    <span class="p-tag">Live Data</span>
+  </div>
+  <div class="p-meta">
+    <div class="p-meta-cell"><p>Type</p><p>Independent Project</p></div>
+    <div class="p-meta-cell"><p>Tournament</p><p>AFCON 2025, Morocco</p></div>
+    <div class="p-meta-cell"><p>Stack</p><p>Python, TensorFlow, scipy</p></div>
+    <div class="p-meta-cell"><p>Year</p><p>2025&ndash;2026</p></div>
+  </div>
 </div>
 
 <div class="p-body">
   <div class="p-sidebar">
-    <div class="p-side-label">Key results</div>
-    <div class="p-stat"><div class="p-stat-num">5,000</div><div class="p-stat-lbl">Monte Carlo simulations<br>per scenario</div></div><div class="p-stat"><div class="p-stat-num">2</div><div class="p-stat-lbl">Model approaches:<br>Poisson + CNN</div></div><div class="p-stat"><div class="p-stat-num">24</div><div class="p-stat-lbl">Teams modelled<br>across 6 groups</div></div>
+    <div class="p-side-label">Key numbers</div>
+    <div class="p-stat"><div class="p-stat-num">5,000</div><div class="p-stat-lbl">Monte Carlo simulations<br>per scenario</div></div>
+    <div class="p-stat"><div class="p-stat-num">2</div><div class="p-stat-lbl">Model approaches:<br>Poisson + CNN</div></div>
+    <div class="p-stat"><div class="p-stat-num">24</div><div class="p-stat-lbl">Teams modelled<br>across 6 groups</div></div>
+    <div class="p-stat"><div class="p-stat-num">152y</div><div class="p-stat-lbl">Historical match data<br>1872&ndash;2024</div></div>
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
-      <div class="p-stack"><span>Python</span><span>scipy (Poisson)</span><span>TensorFlow</span><span>CNN</span><span>NumPy</span><span>pandas</span><span>matplotlib</span><span>openpyxl</span></div>
+      <div class="p-stack">
+        <span>Python</span><span>scipy</span><span>TensorFlow</span>
+        <span>CNN / PyTorch</span><span>NumPy</span><span>pandas</span>
+        <span>matplotlib</span><span>openpyxl</span>
+      </div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>A full tournament prediction engine for AFCON 2025, built from scratch using historical international match data spanning 1872–2024. The system generates match-level probabilities, projects group standings, simulates the full knockout bracket, and produces decision-ready Excel reports — updated dynamically as real results come in.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li><strong>Poisson model</strong> — computes time-decayed attack/defence ratings for all 24 teams using Bayesian priors, then uses a Poisson goal grid to generate win/draw/loss probabilities and most-likely scorelines.</li><li><strong>CNN model</strong> — a 1D convolutional network over team embeddings augmented with form-based numeric features. Trained with class-weighted loss and early stopping.</li><li><strong>Monte Carlo simulation</strong> — 5,000 tournament runs sampling from Poisson distributions, tracking group finishes, quarter/semi/final appearances, and champion probabilities per team.</li><li><strong>Live result integration</strong> — a dedicated CLI tool ingests real match results, refreshes group tables, and re-runs all predictions so forecasts stay current throughout the tournament.</li><li><strong>Scenario analysis</strong> — baseline plus 3 alternative scenarios modelling close-game draws, surfacing how outcomes reshape the knockout bracket.</li></ul></div><div class="p-section"><div class="p-section-lbl">Output</div><p>Two Excel workbooks: full match predictions with scenario comparisons and group table projections; plus Monte Carlo stage odds per team. A visualisation module renders champion odds bar charts, per-group finish heatmaps, and competitive-match probability stacked bars.</p></div></div>
+
+  <div class="p-content">
+    <div class="p-section">
+      <div class="p-section-lbl">Why this project?</div>
+      <p>I am from Morocco and we hosted AFCON this year. Attending matches during the winter break was a once-in-a-lifetime experience. I wanted to learn Monte Carlo simulations and live data pipelines, so I built a full tournament prediction engine around it. I ended up learning much more than I planned.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Approach</div>
+      <ul class="p-bullets">
+        <li><strong>Poisson model</strong> &mdash; computes time-decayed attack/defence ratings for all 24 teams using Bayesian priors, then uses an 8&times;8 Poisson goal grid to generate win/draw/loss probabilities, most-likely scorelines, and a 12% host boost for Morocco.</li>
+        <li><strong>CNN model</strong> &mdash; a 1D convolutional network over team embeddings augmented with form-based numeric features (goals scored/conceded, win rate, deltas). Trained with class-weighted loss and early stopping across 40 epochs.</li>
+        <li><strong>Monte Carlo simulation</strong> &mdash; 5,000 full tournament runs sampling from Poisson distributions, tracking group finishes, quarter/semi/final appearances, and champion probabilities per team.</li>
+        <li><strong>Live result integration</strong> &mdash; a dedicated CLI tool ingests real match results from CSV, refreshes group tables, and re-runs all predictions so forecasts stay current as the tournament progresses.</li>
+        <li><strong>Scenario analysis</strong> &mdash; baseline plus 3 alternative scenarios modelling close-game draws, surfacing how different outcomes reshape the full knockout bracket.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Output</div>
+      <p>Two Excel workbooks: full match predictions with scenario comparisons and group table projections; plus Monte Carlo stage odds per team. A visualisation module renders champion odds bar charts, per-group finish heatmaps, and competitive-match probability stacked bars.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── PIPELINE ── -->
+<div class="viz-section">
+  <h2 class="viz-title">Model <em>Pipeline</em></h2>
+  <p class="viz-sub">From raw historical data to real-time tournament champion odds</p>
+  <div class="pipeline">
+    <div class="pipe-node">
+      <div class="pipe-node-lbl">Input</div>
+      <div class="pipe-node-name">Historical Data</div>
+      <div class="pipe-node-sub">152y of results<br>results.csv &middot; ~3.5MB</div>
+    </div>
+    <div class="pipe-arr">&#8594;</div>
+    <div class="pipe-node hl">
+      <div class="pipe-node-lbl">Feature Eng.</div>
+      <div class="pipe-node-name">Team Strength</div>
+      <div class="pipe-node-sub">Time-decay weights<br>Bayesian priors<br>Attack / Defence</div>
+    </div>
+    <div class="pipe-arr">&#8594;</div>
+    <div class="pipe-node">
+      <div class="pipe-node-lbl">Model A</div>
+      <div class="pipe-node-name">Poisson xG</div>
+      <div class="pipe-node-sub">8&times;8 goal grid<br>Win / Draw / Loss %<br>Top scorelines</div>
+    </div>
+    <div class="pipe-arr">+</div>
+    <div class="pipe-node">
+      <div class="pipe-node-lbl">Model B</div>
+      <div class="pipe-node-name">CNN Ensemble</div>
+      <div class="pipe-node-sub">Team embeddings<br>Form features<br>Class-weighted loss</div>
+    </div>
+    <div class="pipe-arr">&#8594;</div>
+    <div class="pipe-node hl">
+      <div class="pipe-node-lbl">Simulation</div>
+      <div class="pipe-node-name">Monte Carlo</div>
+      <div class="pipe-node-sub">5,000 runs<br>Full bracket<br>Stage odds</div>
+    </div>
+    <div class="pipe-arr">&#8594;</div>
+    <div class="pipe-node">
+      <div class="pipe-node-lbl">Output</div>
+      <div class="pipe-node-name">Reports + Viz</div>
+      <div class="pipe-node-sub">Excel workbooks<br>Champion odds<br>Group heatmaps</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RESULTS ── -->
+<div class="viz-section">
+  <h2 class="viz-title">Group Stage <em>Results</em></h2>
+  <p class="viz-sub">16 played matches &mdash; ingested live into the prediction engine via afcon_live_results.csv</p>
+  <div class="results-grid" id="results-grid"></div>
+</div>
+
+<!-- ── STANDINGS ── -->
+<div class="viz-section">
+  <h2 class="viz-title">Group <em>Standings</em></h2>
+  <p class="viz-sub">Computed by the engine from live results &mdash; highlighted rows qualify (top 2 per group + 4 best third-place)</p>
+  <div class="groups-grid" id="groups-grid"></div>
+</div>
+
+<!-- ── CHAMPION ODDS ── -->
+<div class="viz-section">
+  <h2 class="viz-title">Champion <em>Odds</em></h2>
+  <p class="viz-sub">Monte Carlo output &mdash; 5,000 full tournament simulations, top 10 contenders by win probability</p>
+  <div class="odds-wrap" id="odds-wrap"></div>
+</div>
+
+<!-- ── MATCH PROBABILITIES ── -->
+<div class="viz-section">
+  <h2 class="viz-title">Match <em>Probabilities</em></h2>
+  <p class="viz-sub">Poisson model forecasts for remaining group fixtures &mdash; home win / draw / away win distribution</p>
+  <div class="mp-grid" id="mp-grid"></div>
+</div>
+
+<!-- ── SCENARIOS ── -->
+<div class="viz-section">
+  <h2 class="viz-title">Scenario <em>Analysis</em></h2>
+  <p class="viz-sub">Baseline vs 3 alternative draw scenarios &mdash; how tight fixtures flip the projected champion</p>
+  <div class="sc-grid" id="sc-grid"></div>
 </div>
 
 <a class="p-next" href="project-kitten.html">
@@ -159,7 +304,7 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
     <div class="p-next-lbl">Next project</div>
     <div class="p-next-title">Kitten Adoption Times</div>
   </div>
-  <div class="p-next-arrow">↗</div>
+  <div class="p-next-arrow">&#8599;</div>
 </a>
 
 <footer>
@@ -167,22 +312,159 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <p>MS Business Analytics, Duke Fuqua &middot; May 2026</p>
   <p>Durham, NC &nbsp;&middot;&nbsp; &copy; 2025</p>
 </footer>
+
 <script>
-const lenis = new Lenis({{duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))}});
-(function loop(t){{lenis.raf(t);requestAnimationFrame(loop);}})();
+const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+(function loop(t){lenis.raf(t);requestAnimationFrame(loop)})();
 const cdot=document.getElementById('cdot'),cring=document.getElementById('cring');
 let mx=0,my=0,rx=0,ry=0;
-window.addEventListener('mousemove',e=>{{mx=e.clientX;my=e.clientY;}});
-(function loop(){{
-  cdot.style.cssText=`left:${{mx}}px;top:${{my}}px`;
+window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function loop(){
+  cdot.style.cssText=`left:${mx}px;top:${my}px`;
   rx+=(mx-rx)*.1;ry+=(my-ry)*.1;
-  cring.style.cssText=`left:${{rx}}px;top:${{ry}}px`;
+  cring.style.cssText=`left:${rx}px;top:${ry}px`;
   requestAnimationFrame(loop);
-}})();
-document.querySelectorAll('a,button,.p-next').forEach(el=>{{
+})();
+document.querySelectorAll('a,button,.p-next').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
-}});
+});
+
+/* ─── DATA from afcon_live_results.csv + predict.py ─── */
+const RESULTS=[
+  {d:'Dec 21',g:'A',h:'Morocco',a:'Comoros',hs:2,as:0},
+  {d:'Dec 22',g:'A',h:'Mali',a:'Zambia',hs:1,as:1},
+  {d:'Dec 26',g:'A',h:'Zambia',a:'Comoros',hs:0,as:0},
+  {d:'Dec 26',g:'A',h:'Morocco',a:'Mali',hs:1,as:1},
+  {d:'Dec 22',g:'B',h:'South Africa',a:'Angola',hs:2,as:1},
+  {d:'Dec 22',g:'B',h:'Egypt',a:'Zimbabwe',hs:2,as:1},
+  {d:'Dec 26',g:'B',h:'Angola',a:'Zimbabwe',hs:1,as:1},
+  {d:'Dec 26',g:'B',h:'Egypt',a:'South Africa',hs:1,as:0},
+  {d:'Dec 23',g:'C',h:'Nigeria',a:'Tanzania',hs:2,as:1},
+  {d:'Dec 23',g:'C',h:'Tunisia',a:'Uganda',hs:3,as:1},
+  {d:'Dec 23',g:'D',h:'DR Congo',a:'Benin',hs:1,as:0},
+  {d:'Dec 23',g:'D',h:'Senegal',a:'Botswana',hs:3,as:0},
+  {d:'Dec 24',g:'E',h:'Burkina Faso',a:'Eq. Guinea',hs:2,as:1},
+  {d:'Dec 24',g:'E',h:'Algeria',a:'Sudan',hs:3,as:0},
+  {d:'Dec 24',g:'F',h:'Ivory Coast',a:'Mozambique',hs:1,as:0},
+  {d:'Dec 24',g:'F',h:'Cameroon',a:'Gabon',hs:1,as:0},
+];
+const GROUPS={
+  A:['Morocco','Mali','Zambia','Comoros'],
+  B:['Egypt','South Africa','Angola','Zimbabwe'],
+  C:['Nigeria','Tunisia','Uganda','Tanzania'],
+  D:['Senegal','DR Congo','Benin','Botswana'],
+  E:['Algeria','Burkina Faso','Equatorial Guinea','Sudan'],
+  F:['Ivory Coast','Cameroon','Gabon','Mozambique'],
+};
+const ODDS=[
+  {t:'Morocco',p:28.4},{t:'Senegal',p:16.2},{t:'Algeria',p:12.8},
+  {t:'Nigeria',p:9.3},{t:'Egypt',p:8.7},{t:'Tunisia',p:6.1},
+  {t:'Ivory Coast',p:5.4},{t:'Cameroon',p:4.2},{t:'South Africa',p:3.8},{t:'Burkina Faso',p:2.6},
+];
+const UPCOMING=[
+  {h:'Uganda',a:'Tanzania',d:'Dec 27',g:'C',ph:38,pd:28,pa:34},
+  {h:'Nigeria',a:'Tunisia',d:'Dec 27',g:'C',ph:44,pd:27,pa:29},
+  {h:'Benin',a:'Botswana',d:'Dec 27',g:'D',ph:45,pd:30,pa:25},
+  {h:'Senegal',a:'DR Congo',d:'Dec 27',g:'D',ph:52,pd:25,pa:23},
+  {h:'Eq. Guinea',a:'Sudan',d:'Dec 28',g:'E',ph:41,pd:29,pa:30},
+  {h:'Algeria',a:'Burkina Faso',d:'Dec 28',g:'E',ph:48,pd:27,pa:25},
+  {h:'Gabon',a:'Mozambique',d:'Dec 28',g:'F',ph:43,pd:28,pa:29},
+  {h:'Ivory Coast',a:'Cameroon',d:'Dec 28',g:'F',ph:46,pd:26,pa:28},
+];
+const SCENARIOS=[
+  {n:'Baseline',c:'Morocco',det:'Model-predicted outcomes across all remaining fixtures',base:true},
+  {n:'Scenario 1',c:'Algeria',det:"Draw in Algeria vs Burkina Faso — Group E tightens, Algeria takes a harder R16 path"},
+  {n:'Scenario 2',c:'Senegal',det:"Draw in Senegal vs DR Congo — reshuffled Group D, Senegal meets Morocco earlier"},
+  {n:'Scenario 3',c:'Nigeria',det:"Draw in Nigeria vs Tunisia — Nigeria tops Group C, avoids tougher bracket side"},
+];
+
+/* ─── Compute standings from raw results ─── */
+function computeStandings(){
+  const T={};
+  Object.keys(GROUPS).forEach(g=>{
+    T[g]={};
+    GROUPS[g].forEach(t=>{T[g][t]={P:0,W:0,D:0,L:0,GF:0,GA:0,GD:0,Pts:0};});
+  });
+  RESULTS.forEach(r=>{
+    const g=r.g,h=r.h,a=r.a;
+    if(!T[g]||!T[g][h]||!T[g][a])return;
+    T[g][h].P++;T[g][a].P++;
+    T[g][h].GF+=r.hs;T[g][h].GA+=r.as;
+    T[g][a].GF+=r.as;T[g][a].GA+=r.hs;
+    T[g][h].GD=T[g][h].GF-T[g][h].GA;
+    T[g][a].GD=T[g][a].GF-T[g][a].GA;
+    if(r.hs>r.as){T[g][h].W++;T[g][a].L++;T[g][h].Pts+=3;}
+    else if(r.hs<r.as){T[g][a].W++;T[g][h].L++;T[g][a].Pts+=3;}
+    else{T[g][h].D++;T[g][a].D++;T[g][h].Pts++;T[g][a].Pts++;}
+  });
+  const R={};
+  Object.keys(T).forEach(g=>{
+    R[g]=Object.entries(T[g]).sort((a,b)=>b[1].Pts-a[1].Pts||b[1].GD-a[1].GD||b[1].GF-a[1].GF);
+  });
+  return R;
+}
+
+/* ─── Render ─── */
+document.getElementById('results-grid').innerHTML=RESULTS.map(r=>`
+  <div class="result-row">
+    <div class="result-team ra">${r.h}</div>
+    <div><div class="result-score">${r.hs} &ndash; ${r.as}</div><div class="result-meta">Grp ${r.g} &middot; ${r.d}</div></div>
+    <div class="result-team">${r.a}</div>
+  </div>`).join('');
+
+const S=computeStandings();
+document.getElementById('groups-grid').innerHTML=Object.keys(S).map(g=>`
+  <div class="group-card">
+    <div class="group-lbl">Group ${g}</div>
+    <table class="gtable">
+      <thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead>
+      <tbody>${S[g].map(([t,s],i)=>`
+        <tr class="${i<2?'q':''}">
+          <td>${t}</td><td>${s.P}</td><td>${s.W}</td><td>${s.D}</td><td>${s.L}</td>
+          <td>${s.GD>0?'+':''}${s.GD}</td><td class="pts">${s.Pts}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`).join('');
+
+const mx2=ODDS[0].p;
+document.getElementById('odds-wrap').innerHTML=ODDS.map((o,i)=>`
+  <div class="odds-row ${i<3?'leader':''}">
+    <div class="odds-team">${o.t}</div>
+    <div class="odds-bar-bg"><div class="odds-bar" data-w="${(o.p/mx2*100).toFixed(1)}%"></div></div>
+    <div class="odds-pct">${o.p}%</div>
+  </div>`).join('');
+setTimeout(()=>{
+  document.querySelectorAll('.odds-bar').forEach(b=>b.style.width=b.dataset.w);
+},400);
+
+document.getElementById('mp-grid').innerHTML=UPCOMING.map(m=>`
+  <div class="mp-card">
+    <div class="mp-head">
+      <div class="mp-team">${m.h}</div>
+      <div class="mp-vs">Grp ${m.g}</div>
+      <div class="mp-team">${m.a}</div>
+    </div>
+    <div class="mp-bar">
+      <div class="mph" style="flex:${m.ph}"></div>
+      <div class="mpd" style="flex:${m.pd}"></div>
+      <div class="mpa" style="flex:${m.pa}"></div>
+    </div>
+    <div class="mp-leg">
+      <span style="color:var(--acc)">${m.ph}% home</span>
+      <span style="color:var(--text3)">${m.pd}% draw</span>
+      <span style="color:var(--acc-d)">${m.pa}% away</span>
+    </div>
+    <div class="mp-date">${m.d} &middot; Poisson model</div>
+  </div>`).join('');
+
+document.getElementById('sc-grid').innerHTML=SCENARIOS.map(s=>`
+  <div class="sc-card${s.base?' base':''}">
+    <div class="sc-name">${s.n}${s.base?' &mdash; projected champion':''}</div>
+    <div class="sc-champ">${s.c}</div>
+    <div class="sc-detail">${s.det}</div>
+  </div>`).join('');
 </script>
 </body>
 </html>
