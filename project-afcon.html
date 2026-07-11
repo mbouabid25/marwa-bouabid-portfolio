@@ -209,22 +209,25 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 
   <div class="p-content">
     <div class="p-section">
-      <div class="p-section-lbl">Why this project?</div>
-      <p>I am from Morocco and we hosted AFCON this year. Attending matches during the winter break was a once-in-a-lifetime experience. I wanted to learn Monte Carlo simulations and live data pipelines, so I built a full tournament prediction engine around it. I ended up learning much more than I planned.</p>
+      <div class="p-section-lbl">Overview</div>
+      <p>An end-to-end machine learning system that forecasts AFCON 2025 — every match, group table, and knockout bracket, through to the champion. It pairs a Bayesian Poisson goal model with a neural network, runs 5,000 Monte Carlo tournament simulations, and <strong>re-forecasts automatically as real results come in</strong>.</p>
+      <p>I'm from Morocco, and Morocco hosted this AFCON — so while I attended matches over winter break, the model was predicting them. It started as an excuse to learn Monte Carlo methods and live data pipelines; it became a full forecasting product.</p>
     </div>
     <div class="p-section">
-      <div class="p-section-lbl">Approach</div>
+      <div class="p-section-lbl">How it works</div>
       <ul class="p-bullets">
-        <li><strong>Poisson model</strong> &mdash; computes time-decayed attack/defence ratings for all 24 teams using Bayesian priors, then uses an 8&times;8 Poisson goal grid to generate win/draw/loss probabilities, most-likely scorelines, and a 12% host boost for Morocco.</li>
-        <li><strong>CNN model</strong> &mdash; a 1D convolutional network over team embeddings augmented with form-based numeric features (goals scored/conceded, win rate, deltas). Trained with class-weighted loss and early stopping across 40 epochs.</li>
-        <li><strong>Monte Carlo simulation</strong> &mdash; 5,000 full tournament runs sampling from Poisson distributions, tracking group finishes, quarter/semi/final appearances, and champion probabilities per team.</li>
-        <li><strong>Live result integration</strong> &mdash; a dedicated CLI tool ingests real match results from CSV, refreshes group tables, and re-runs all predictions so forecasts stay current as the tournament progresses.</li>
-        <li><strong>Scenario analysis</strong> &mdash; baseline plus 3 alternative scenarios modelling close-game draws, surfacing how different outcomes reshape the full knockout bracket.</li>
+        <li><strong>Team strength ratings</strong> &mdash; 152 years of international results (1872&ndash;2024), weighted by recency with Bayesian priors, produce attack and defence ratings for all 24 teams — plus a host-nation boost for Morocco.</li>
+        <li><strong>Match forecasting</strong> &mdash; a Poisson goal model converts ratings into win/draw/loss probabilities and most-likely scorelines for every fixture.</li>
+        <li><strong>A deep-learning second opinion</strong> &mdash; a convolutional neural network trained on team embeddings and recent-form features cross-checks the statistical model.</li>
+        <li><strong>Tournament simulation</strong> &mdash; 5,000 Monte Carlo runs of the full tournament yield each team's odds of reaching every stage, quarter-finals through champion.</li>
+        <li><strong>Live updates</strong> &mdash; real results are ingested via a CLI tool; group tables and all downstream forecasts refresh automatically as the tournament progresses.</li>
+        <li><strong>Scenario analysis</strong> &mdash; baseline vs. three alternative scenarios show how a single tight fixture can reshape the entire knockout bracket.</li>
       </ul>
     </div>
     <div class="p-section">
-      <div class="p-section-lbl">Output</div>
-      <p>Two Excel workbooks: full match predictions with scenario comparisons and group table projections; plus Monte Carlo stage odds per team. A visualisation module renders champion odds bar charts, per-group finish heatmaps, and competitive-match probability stacked bars.</p>
+      <div class="p-section-lbl">Results &amp; takeaways</div>
+      <p>The engine delivers its forecasts as Excel reports and the visual dashboards below — champion odds, group-finish projections, and per-match probability breakdowns, all computed from live tournament data.</p>
+      <p>The project covers the <strong>full analytics lifecycle</strong>: sourcing and cleaning historical data, engineering features, comparing statistical and deep-learning models, quantifying uncertainty through simulation, and keeping predictions current as new data arrives.</p>
     </div>
   </div>
 </div>
