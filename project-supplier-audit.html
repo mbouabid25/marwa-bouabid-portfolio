@@ -127,6 +127,19 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.pipeline{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem;margin-top:.5rem;}
+.pipe-node{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem 1.3rem;min-width:8.5rem;flex-shrink:0;flex:1;}
+.pipe-node.hl{border-color:var(--acc-d);}
+.pipe-node-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
+.pipe-node-name{font-family:var(--f-d);font-size:1rem;color:var(--text);font-style:italic;line-height:1.2;margin-bottom:.3rem;}
+.pipe-node-sub{font-size:.62rem;color:var(--text3);line-height:1.5;}
+.pipe-arr{display:flex;align-items:center;color:var(--text3);padding:0 .4rem;font-size:.85rem;flex-shrink:0;}
+@media(max-width:600px){.pipeline{flex-direction:column;}.pipe-arr{transform:rotate(90deg);justify-content:center;padding:.3rem 0;}}
 </style>
 </head>
 <body>
@@ -144,7 +157,7 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 <div class="p-hero">
   <div class="p-cat">AI Agent · ESG · Procurement</div>
   <h1 class="p-title"><em>Ethical</em><br>Supplier<br>Audit<br></h1>
-  <div class="p-tags"><span class="p-tag hi">LLM Agent</span><span class="p-tag">ESG Scoring</span><span class="p-tag">GPT-4o</span><span class="p-tag">Streamlit</span><span class="p-tag">Procurement</span></div>
+  <div class="p-tags"><span class="p-tag hi">LLM Agent</span><span class="p-tag">ESG Scoring</span><span class="p-tag">GPT-4o</span><span class="p-tag">Chrome Extension</span><span class="p-tag">FastAPI</span><span class="p-tag">Procurement</span></div>
 </div>
 
 <div class="p-body">
@@ -153,10 +166,43 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
     <div class="p-stat"><div class="p-stat-num">0–100</div><div class="p-stat-lbl">Deterministic ESG<br>risk score per supplier</div></div><div class="p-stat"><div class="p-stat-num">4</div><div class="p-stat-lbl">Recency decay buckets<br>for incident weighting</div></div><div class="p-stat"><div class="p-stat-num">5</div><div class="p-stat-lbl">Severity ladder levels<br>(1–5 per incident)</div></div>
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
-      <div class="p-stack"><span>Python 3.10+</span><span>Streamlit</span><span>LangChain / GPT-4o</span><span>Tavily</span><span>Pydantic</span><span>Plotly</span></div>
+      <div class="p-stack"><span>Python</span><span>FastAPI</span><span>GPT-4o</span><span>Tavily</span><span>Pydantic</span><span>Chrome Extension</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>An autonomous procurement agent that turns live web signals into a normalised 0–100 ESG risk scorecard for any supplier. Built to give procurement teams an automated early-warning system to spot labor, environmental, and governance risk — without manual research or subjective scoring.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li>SearchAgent issues focused Tavily queries (labor violations, environmental fines, supply chain scandals), dedupes URLs, and passes snippets to a structured LLM parser.</li><li>GPT-4o with strict Pydantic schema (SupplierAnalysis → RiskEvent) extracts incidents with severity scores (1–5) aligned to business rules — preventing hallucinated fields.</li><li>Recency decay buckets weight incidents: ≤6mo = 1.0×, 6–12mo = 0.8×, 1–2y = 0.5×, >2y = 0.2×. LLM never touches the math — Python handles all scoring.</li><li>Streamlit UI with Plotly gauge, expandable incident list, and graceful handling of empty or failed searches.</li></ul></div><div class="p-section"><div class="p-section-lbl">Results</div><p>Deterministic scoring produced consistent 0–100 ratings across test suppliers. Recency weighting correctly surfaced recent labor disputes over older minor infractions. Schema enforcement prevented hallucinated fields entirely. Business outcome: faster supplier diligence, clearer escalation thresholds, and proactive vendor management before audits.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Any supplier's name in, an evidence-backed 0–100 ESG risk score out — due diligence that takes hours of manual research, done in about 30 seconds.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Overview</div>
+      <p>A Chrome extension backed by an AI scoring API that turns live web evidence into a <strong>0&ndash;100 ESG risk score</strong> for any supplier. Visit a company's website or LinkedIn page, click the extension, and get an automated read on labor, environmental, and governance risk &mdash; an early-warning system for procurement teams, without manual research or subjective scoring.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">How it works</div>
+      <ul class="p-bullets">
+        <li><strong>Auto-detection</strong> &mdash; the extension recognises the company from the page you're on (website, LinkedIn, Wikipedia) and pre-fills the scan.</li>
+        <li><strong>Live web evidence</strong> &mdash; the API issues focused search queries &mdash; labor violations, environmental fines, supply-chain scandals &mdash; via Tavily, and dedupes sources.</li>
+        <li><strong>Structured AI extraction</strong> &mdash; GPT-4o pulls incidents into a strict Pydantic schema with 1&ndash;5 severity grades; malformed or invented fields are rejected outright.</li>
+        <li><strong>Deterministic scoring</strong> &mdash; Python computes the score with recency weighting &mdash; an incident this year counts 5&times; one from three years ago. The LLM never touches the math.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Architecture</div>
+      <div class="pipeline">
+        <div class="pipe-node"><div class="pipe-node-lbl">Client</div><div class="pipe-node-name">Chrome Ext.</div><div class="pipe-node-sub">Detects company<br>on any page</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">API</div><div class="pipe-node-name">FastAPI</div><div class="pipe-node-sub">Scan orchestration<br>&amp; validation</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">Evidence</div><div class="pipe-node-name">Web Search</div><div class="pipe-node-sub">Tavily queries<br>deduped sources</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node hl"><div class="pipe-node-lbl">Extraction</div><div class="pipe-node-name">GPT-4o</div><div class="pipe-node-sub">Pydantic schema<br>severity 1&ndash;5</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">Score</div><div class="pipe-node-name">0&ndash;100</div><div class="pipe-node-sub">Deterministic<br>recency-weighted</div></div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Results &amp; impact</div>
+      <p>Deterministic scoring produced <strong>consistent, repeatable ratings</strong> across test suppliers; recency weighting correctly surfaced recent labor disputes over older minor infractions; and schema enforcement eliminated hallucinated fields entirely. For a procurement team: faster vendor diligence, clearer escalation thresholds, and issues surfaced before audits &mdash; not after.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-portfolio-optimization.html">

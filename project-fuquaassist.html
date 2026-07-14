@@ -127,6 +127,20 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.bviz{display:flex;flex-direction:column;gap:.55rem;margin-top:.5rem;}
+.bviz-row{display:flex;align-items:center;gap:1rem;}
+.bviz-lbl{font-size:.72rem;color:var(--text2);min-width:10rem;}
+.bviz-track{flex:1;height:18px;background:var(--bg-s);border:1px solid var(--surf);overflow:hidden;}
+.bviz-fill{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));}
+.bviz-fill.dim{background:var(--surf2);}
+.bviz-val{font-size:.72rem;color:var(--acc);min-width:3.2rem;text-align:right;}
+.bviz-val.dim{color:var(--text3);}
+.bviz-note{font-size:.66rem;color:var(--text3);margin-top:.8rem;letter-spacing:.04em;}
 </style>
 </head>
 <body>
@@ -158,13 +172,40 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 <div class="p-body">
   <div class="p-sidebar">
     <div class="p-side-label">Key results</div>
-    <div class="p-stat"><div class="p-stat-num">60%</div><div class="p-stat-lbl">Exact-match accuracy<br>(up from 25% baseline)</div></div><div class="p-stat"><div class="p-stat-num"><5%</div><div class="p-stat-lbl">Hallucination rate<br>achieved</div></div><div class="p-stat"><div class="p-stat-num">2×</div><div class="p-stat-lbl">Performance lift over<br>baseline LLMs</div></div>
+    <div class="p-stat"><div class="p-stat-num">60%</div><div class="p-stat-lbl">Exact-match accuracy<br>(up from 25% baseline)</div></div><div class="p-stat"><div class="p-stat-num"><5%</div><div class="p-stat-lbl">Hallucination rate<br>achieved</div></div><div class="p-stat"><div class="p-stat-num">2.4×</div><div class="p-stat-lbl">Performance lift over<br>baseline LLMs</div></div>
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
       <div class="p-stack"><span>Python</span><span>PyTorch</span><span>FAISS</span><span>HuggingFace</span><span>RAG</span><span>Bi-Encoder</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>FuquaAssist is a Retrieval-Augmented Generation (RAG) chatbot built to answer questions about Duke Fuqua's institutional data — course offerings, policies, faculty, and programs. The challenge was getting a language model to answer <strong>accurately</strong> about a specific corpus it wasn't trained on, without hallucinating.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li>Indexed unstructured institutional data using FAISS vector store, enabling sub-100ms semantic search across thousands of document chunks.</li><li>Implemented a bi-encoder architecture (all-mpnet-base-v2) with sliding-window chunking to optimise semantic retrieval — balancing context window size with retrieval precision.</li><li>Conducted comparative analysis of multiple embedding architectures against baseline LLMs to identify the best-performing retrieval strategy.</li><li>Built a modular pipeline: document ingestion → chunking → embedding → FAISS indexing → retrieval → generation.</li></ul></div><div class="p-section"><div class="p-section-lbl">Results</div><p>The system boosted exact-match accuracy from <strong>25% to 60%</strong> and reduced hallucination rates to under <strong>5%</strong>. The bi-encoder approach outperformed baseline LLM prompting on every evaluated metric.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Made Duke Fuqua's institutional knowledge reliably searchable: answer accuracy up from 25% to 60%, hallucinations under 5%.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Overview</div>
+      <p>FuquaAssist is a Retrieval-Augmented Generation (RAG) chatbot built to answer questions about Duke Fuqua's institutional data &mdash; course offerings, policies, faculty, and programs. The challenge: getting a language model to answer <strong>accurately</strong> about a specific corpus it wasn't trained on, without hallucinating.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">How it works</div>
+      <ul class="p-bullets">
+        <li><strong>Semantic search at scale</strong> &mdash; thousands of document chunks indexed in a FAISS vector store, searched in under 100ms.</li>
+        <li><strong>Smarter chunking</strong> &mdash; a bi-encoder architecture (all-mpnet-base-v2) with sliding-window chunking balances context size against retrieval precision.</li>
+        <li><strong>Benchmarked, not assumed</strong> &mdash; multiple embedding architectures compared against baseline LLMs to pick the best retrieval strategy.</li>
+        <li><strong>Modular pipeline</strong> &mdash; ingestion &#8594; chunking &#8594; embedding &#8594; indexing &#8594; retrieval &#8594; generation, each stage swappable.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Answer accuracy</div>
+      <div class="bviz">
+        <div class="bviz-row"><div class="bviz-lbl">Baseline LLM</div><div class="bviz-track"><div class="bviz-fill dim" style="width:25%"></div></div><div class="bviz-val dim">25%</div></div>
+        <div class="bviz-row"><div class="bviz-lbl">FuquaAssist (RAG)</div><div class="bviz-track"><div class="bviz-fill" style="width:60%"></div></div><div class="bviz-val">60%</div></div>
+        <div class="bviz-note">Exact-match accuracy on institutional questions &middot; hallucination rate reduced to &lt;5%</div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Results &amp; impact</div>
+      <p>The bi-encoder approach outperformed baseline LLM prompting on <strong>every evaluated metric</strong> &mdash; 2.4&times; the exact-match accuracy &mdash; making institutional knowledge reliably accessible at scale. Try it in the live demo above.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-football.html">

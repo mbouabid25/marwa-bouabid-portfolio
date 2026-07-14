@@ -75,6 +75,10 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-body{grid-template-columns:1fr;}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
 </style>
 </head>
 <body>
@@ -126,6 +130,7 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   </div>
 
   <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>67.3% of World Cup matches called correctly — trained only on pre-tournament data, verified on 98 real games.</p></div>
     <div class="p-section">
       <div class="p-section-lbl">Overview</div>
       <p>Probabilistic forecasts for the 2026 FIFA World Cup — built mid-tournament, during semifinals week, and <strong>scored live against the matches already played</strong>. The engine adapts my AFCON 2025 predictor (63.5% accuracy on that tournament) to the World Cup, pairing an opponent-adjusted Poisson model with a squad-market-value prior and simulating the remaining bracket through to championship odds.</p>

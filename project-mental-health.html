@@ -121,6 +121,20 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.bviz{display:flex;flex-direction:column;gap:.55rem;margin-top:.5rem;}
+.bviz-row{display:flex;align-items:center;gap:1rem;}
+.bviz-lbl{font-size:.72rem;color:var(--text2);min-width:10rem;}
+.bviz-track{flex:1;height:18px;background:var(--bg-s);border:1px solid var(--surf);overflow:hidden;}
+.bviz-fill{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));}
+.bviz-fill.dim{background:var(--surf2);}
+.bviz-val{font-size:.72rem;color:var(--acc);min-width:3.2rem;text-align:right;}
+.bviz-val.dim{color:var(--text3);}
+.bviz-note{font-size:.66rem;color:var(--text3);margin-top:.8rem;letter-spacing:.04em;}
 </style>
 </head>
 <body>
@@ -151,7 +165,36 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
       <div class="p-stack"><span>Python</span><span>PyTorch</span><span>pandas</span><span>NumPy</span><span>Bi-LSTM</span><span>Class-weighted loss</span><span>Confusion matrix</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>A seven-class Bi-LSTM early-warning system classifying text into: Suicidal, Depression, Anxiety, Bipolar, Stress, Personality Disorder, and Normal. Trained on anonymised social media posts, forum threads, and diary entries — built for real-time triage to enable targeted interventions.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li>Bi-directional LSTM with 100-dimensional embeddings and 128 hidden units, operating on a 50-token window to capture semantic order ("I am not happy" vs "I am happy").</li><li>Trained 15 epochs with inverse-frequency class-weighted loss to combat severe data imbalance (16k Normal samples vs 1.2k Personality Disorder).</li><li>Seven-class output provides granular diagnostic context beyond simple sentiment — capturing clinical nuance including comorbidities.</li><li>Proactive routing: hotline alerts for high-risk classifications, mindfulness recommendations for lower-risk outputs.</li></ul></div><div class="p-section"><div class="p-section-lbl">Results</div><p><strong>74% test accuracy</strong> vs 14% random baseline. Recall: Suicidal 0.62, Depression 0.66, strong separation on Normal/Anxiety. Live test on "I feel like there is no point in going on..." correctly ranked Suicidal at 72.8% with Depression (22.8%) as secondary — reflecting learned comorbidity patterns.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Flags high-risk mental-health text in real time — 74% accuracy across seven clinical categories, routing crisis cases to hotline alerts.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Overview</div>
+      <p>A seven-class early-warning system classifying text into: Suicidal, Depression, Anxiety, Bipolar, Stress, Personality Disorder, and Normal. Trained on anonymised social media posts, forum threads, and diary entries &mdash; built for real-time triage that routes the highest-risk cases to immediate intervention.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">How it works</div>
+      <ul class="p-bullets">
+        <li><strong>Order-aware reading</strong> &mdash; a bi-directional LSTM over a 50-token window captures semantic order (&ldquo;I am not happy&rdquo; vs &ldquo;I am happy&rdquo;).</li>
+        <li><strong>Built for imbalance</strong> &mdash; inverse-frequency class-weighted loss handles severe skew in the data (16k Normal samples vs 1.2k Personality Disorder).</li>
+        <li><strong>Clinical granularity</strong> &mdash; seven classes capture diagnostic nuance beyond simple sentiment, including learned comorbidity patterns.</li>
+        <li><strong>Proactive routing</strong> &mdash; hotline alerts for high-risk classifications, mindfulness recommendations for lower-risk outputs.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Performance</div>
+      <div class="bviz">
+        <div class="bviz-row"><div class="bviz-lbl">Model accuracy</div><div class="bviz-track"><div class="bviz-fill" style="width:74%"></div></div><div class="bviz-val">74%</div></div>
+        <div class="bviz-row"><div class="bviz-lbl">Random baseline (7-class)</div><div class="bviz-track"><div class="bviz-fill dim" style="width:14%"></div></div><div class="bviz-val dim">14%</div></div>
+        <div class="bviz-row"><div class="bviz-lbl">Recall &mdash; Suicidal</div><div class="bviz-track"><div class="bviz-fill" style="width:62%"></div></div><div class="bviz-val">0.62</div></div>
+        <div class="bviz-row"><div class="bviz-lbl">Recall &mdash; Depression</div><div class="bviz-track"><div class="bviz-fill" style="width:66%"></div></div><div class="bviz-val">0.66</div></div>
+        <div class="bviz-note">Test-set performance &middot; class-weighted training on heavily imbalanced data</div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Results &amp; impact</div>
+      <p>In a live test, &ldquo;I feel like there is no point in going on&hellip;&rdquo; was correctly ranked <strong>Suicidal at 72.8%</strong> with Depression (22.8%) as secondary &mdash; reflecting learned comorbidity patterns. Paired with routing, that makes the difference between a dashboard metric and a hotline call that happens in time.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-supplier-audit.html">

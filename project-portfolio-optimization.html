@@ -121,6 +121,17 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem;}
+.fcard{background:var(--bg-s);border:1px solid var(--surf);padding:1.2rem;}
+.fcard.hl{border-color:var(--acc-d);}
+.fcard-name{font-family:var(--f-d);font-size:1.3rem;font-weight:300;color:var(--acc);margin-bottom:.4rem;}
+.fcard-txt{font-size:.72rem;color:var(--text3);line-height:1.6;}
+@media(max-width:700px){.fcards{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -151,7 +162,34 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
       <div class="p-stack"><span>Python</span><span>skfolio</span><span>pyfolio</span><span>pandas</span><span>HRP</span><span>Black-Litterman</span><span>Walk-forward backtesting</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>A systematic, quantitative equity portfolio construction tool built on modern portfolio theory and ML techniques. Sources constituents from major global indices and applies a "barbell" selection strategy — combining high-momentum and low-volatility equities with configurable geographic diversification.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li>Four optimization strategies evaluated head-to-head: Hierarchical Risk Parity (HRP), Maximum Sharpe Ratio, Maximum Diversification, and Black-Litterman with investor views.</li><li>Barbell strategy selects high-momentum stocks paired with low-volatility anchors across S&P 500, FTSE 100, DAX, Nikkei 225, and other indices.</li><li>Rigorous walk-forward backtesting with realistic transaction cost modelling and survivorship bias awareness — no look-ahead leakage.</li><li>Comprehensive analytics: factor exposure analysis, risk contribution decomposition, and correlation heatmaps for portfolio transparency.</li></ul></div><div class="p-section"><div class="p-section-lbl">Results</div><p>HRP consistently outperformed on drawdown control while Black-Litterman allowed incorporation of informed macro views. Transaction cost modelling narrowed the apparent alpha of high-turnover strategies — a crucial real-world reality check.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Four optimization strategies stress-tested honestly: HRP wins on drawdown control, and transaction costs erase most high-turnover alpha.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Overview</div>
+      <p>A systematic equity portfolio construction tool built on modern portfolio theory and ML techniques. It sources constituents from major global indices and applies a &ldquo;barbell&rdquo; selection strategy &mdash; pairing high-momentum stocks with low-volatility anchors, with configurable geographic diversification.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">How it works</div>
+      <ul class="p-bullets">
+        <li><strong>Head-to-head strategies</strong> &mdash; Hierarchical Risk Parity (HRP), Maximum Sharpe Ratio, Maximum Diversification, and Black-Litterman with investor views, evaluated on the same universes.</li>
+        <li><strong>Barbell selection</strong> &mdash; high-momentum stocks paired with low-volatility anchors across S&amp;P 500, FTSE 100, DAX, Nikkei 225, and other indices.</li>
+        <li><strong>Honest backtesting</strong> &mdash; walk-forward evaluation with realistic transaction costs, survivorship-bias awareness, and no look-ahead leakage.</li>
+        <li><strong>Transparency analytics</strong> &mdash; factor exposures, risk contribution decomposition, and correlation heatmaps for every portfolio.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Key findings</div>
+      <div class="fcards">
+        <div class="fcard hl"><div class="fcard-name">HRP</div><div class="fcard-txt">Consistently the best drawdown control across backtests.</div></div>
+        <div class="fcard"><div class="fcard-name">Black-Litterman</div><div class="fcard-txt">The only strategy that cleanly incorporates informed macro views.</div></div>
+        <div class="fcard"><div class="fcard-name">Transaction costs</div><div class="fcard-txt">Narrowed the apparent alpha of high-turnover strategies &mdash; the real-world reality check.</div></div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Results &amp; impact</div>
+      <p>The head-to-head comparison shows why <strong>backtest honesty matters more than backtest results</strong>: strategies that looked strongest on paper lost much of their edge once realistic costs and bias controls were applied. The framework makes those trade-offs visible before capital is committed.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-fuquaassist.html">

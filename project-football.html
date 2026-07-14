@@ -121,6 +121,19 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.pipeline{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem;margin-top:.5rem;}
+.pipe-node{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem 1.3rem;min-width:8.5rem;flex-shrink:0;flex:1;}
+.pipe-node.hl{border-color:var(--acc-d);}
+.pipe-node-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
+.pipe-node-name{font-family:var(--f-d);font-size:1rem;color:var(--text);font-style:italic;line-height:1.2;margin-bottom:.3rem;}
+.pipe-node-sub{font-size:.62rem;color:var(--text3);line-height:1.5;}
+.pipe-arr{display:flex;align-items:center;color:var(--text3);padding:0 .4rem;font-size:.85rem;flex-shrink:0;}
+@media(max-width:600px){.pipeline{flex-direction:column;}.pipe-arr{transform:rotate(90deg);justify-content:center;padding:.3rem 0;}}
 </style>
 </head>
 <body>
@@ -151,7 +164,38 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
       <div class="p-stack"><span>R</span><span>Random Forest</span><span>K-Means</span><span>ILP</span><span>ggplot2</span><span>dplyr</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>Football clubs spend hundreds of millions on player transfers based largely on gut feel and hype. This project replaced that speculation with a <strong>data-driven framework</strong> that identifies undervalued, tactically diverse talent and optimises a 25-player squad within a hard budget constraint.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li>Built Random Forest models to predict player performance metrics from historical data, identifying statistically undervalued players across global leagues.</li><li>Applied K-Means clustering to profile tactical archetypes — grouping players by playing style rather than position labels alone.</li><li>Formulated an Integer Linear Programming (ILP) optimisation model with constraints on budget ($2.3M), squad size (25), and positional requirements.</li><li>Validated results against market valuations to quantify ROI over a comparable market-rate squad.</li></ul></div><div class="p-section"><div class="p-section-lbl">Output</div><p>The final deliverable was a <strong>"Game Day Playbook"</strong> — a management decision-support tool presenting the optimised squad with per-player justification, tactical fit analysis, and projected performance benchmarks.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Turned a $2.3M transfer budget into an optimized 25-player squad — every pick backed by data rather than market hype.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Overview</div>
+      <p>Football clubs spend hundreds of millions on player transfers based largely on gut feel and hype. This project replaced that speculation with a data-driven framework that identifies undervalued, tactically diverse talent and optimises a 25-player squad within a hard budget constraint.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">How it works</div>
+      <ul class="p-bullets">
+        <li><strong>Player valuation</strong> &mdash; Random Forest models predict performance from historical data, surfacing statistically undervalued players across global leagues.</li>
+        <li><strong>Tactical profiling</strong> &mdash; K-Means clustering groups players into tactical archetypes by playing style, not just position labels.</li>
+        <li><strong>Budget optimization</strong> &mdash; Integer Linear Programming allocates the $2.3M budget across 25 roster spots under positional and tactical constraints.</li>
+        <li><strong>Validation</strong> &mdash; results checked against market valuations to quantify ROI over a comparable market-rate squad.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Methodology</div>
+      <div class="pipeline">
+        <div class="pipe-node"><div class="pipe-node-lbl">Step 1</div><div class="pipe-node-name">Value</div><div class="pipe-node-sub">Random Forest<br>player valuation</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">Step 2</div><div class="pipe-node-name">Profile</div><div class="pipe-node-sub">K-Means tactical<br>archetypes</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node hl"><div class="pipe-node-lbl">Step 3</div><div class="pipe-node-name">Optimize</div><div class="pipe-node-sub">ILP &middot; $2.3M<br>25 players</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">Deliverable</div><div class="pipe-node-name">Playbook</div><div class="pipe-node-sub">Game Day<br>decision tool</div></div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Results &amp; impact</div>
+      <p>The final deliverable was a <strong>&ldquo;Game Day Playbook&rdquo;</strong> &mdash; a management decision-support tool presenting the optimised squad with per-player justification, tactical fit analysis, and projected performance benchmarks: defensible, data-driven squad decisions instead of speculation.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-cvs.html">

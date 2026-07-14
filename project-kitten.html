@@ -121,6 +121,19 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.pipeline{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem;margin-top:.5rem;}
+.pipe-node{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem 1.3rem;min-width:8.5rem;flex-shrink:0;flex:1;}
+.pipe-node.hl{border-color:var(--acc-d);}
+.pipe-node-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
+.pipe-node-name{font-family:var(--f-d);font-size:1rem;color:var(--text);font-style:italic;line-height:1.2;margin-bottom:.3rem;}
+.pipe-node-sub{font-size:.62rem;color:var(--text3);line-height:1.5;}
+.pipe-arr{display:flex;align-items:center;color:var(--text3);padding:0 .4rem;font-size:.85rem;flex-shrink:0;}
+@media(max-width:600px){.pipeline{flex-direction:column;}.pipe-arr{transform:rotate(90deg);justify-content:center;padding:.3rem 0;}}
 </style>
 </head>
 <body>
@@ -165,7 +178,38 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
       <div class="p-stack"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>pandas</span><span>Grad-CAM</span><span>Survival curves</span><span>Class balancing</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Why this project?</div><p>After visiting the Durham Animal Shelter and leaving with three fosters, I saw too many animals in distress. I wanted to build a model that could help shelters prioritise their efforts and reduce the time kittens spend in foster care. This project is the result.</p></div><div class="p-section"><div class="p-section-lbl">Approach</div><ul class="p-bullets"><li>Combined intake metadata (age, breed), medical records, and raw intake photos into a unified prediction pipeline for days-to-adoption.</li><li>Survival modelling framework estimates adoption hazard curves — producing ranked views and intervention tips for animals least likely to be adopted quickly.</li><li>Grad-CAM interpretability overlays reveal exactly which visual cues (lighting, expression, framing) push adoption predictions up or down.</li><li>Simple actionable flags for age, weight, and fixed status turn complex model outputs into a clear to-do list for shelter staff.</li></ul></div><div class="p-section"><div class="p-section-lbl">Results</div><p>The hybrid survival model cut median absolute error by <strong>~2.4 days</strong> vs baseline. Grad-CAM confirmed that photo quality (lighting, composition) is a significant adoption predictor — enabling targeted photography recommendations for harder-to-place animals.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Cut adoption-time prediction error by ~2.4 days — and gave shelter staff a concrete to-do list, starting with better photos.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Why this project?</div>
+      <p>After visiting the Durham Animal Shelter and leaving with three fosters, I saw too many animals in distress. I wanted to build a model that could help shelters prioritise their efforts and reduce the time kittens spend in foster care. This project is the result.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">How it works</div>
+      <ul class="p-bullets">
+        <li><strong>Unified pipeline</strong> &mdash; intake metadata (age, breed), medical records, and raw intake photos combined into one days-to-adoption prediction.</li>
+        <li><strong>Survival modelling</strong> &mdash; adoption hazard curves produce ranked views and intervention tips for the animals least likely to be adopted quickly.</li>
+        <li><strong>Explainable predictions</strong> &mdash; Grad-CAM overlays reveal exactly which visual cues (lighting, expression, framing) push predictions up or down.</li>
+        <li><strong>Actionable flags</strong> &mdash; age, weight, and fixed-status flags turn model output into a clear to-do list for shelter staff.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">From intake to action</div>
+      <div class="pipeline">
+        <div class="pipe-node"><div class="pipe-node-lbl">Input</div><div class="pipe-node-name">Intake Data</div><div class="pipe-node-sub">Metadata &middot; medical<br>records &middot; photos</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node hl"><div class="pipe-node-lbl">Model</div><div class="pipe-node-name">Survival Model</div><div class="pipe-node-sub">Adoption hazard<br>curves per animal</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">Output</div><div class="pipe-node-name">Priority List</div><div class="pipe-node-sub">Ranked by risk of<br>long shelter stay</div></div>
+        <div class="pipe-arr">&#8594;</div>
+        <div class="pipe-node"><div class="pipe-node-lbl">Action</div><div class="pipe-node-name">Staff To-Dos</div><div class="pipe-node-sub">Photo, health &amp;<br>listing fixes</div></div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Results &amp; impact</div>
+      <p>The hybrid survival model cut median absolute error by <strong>~2.4 days</strong> vs baseline. Grad-CAM confirmed that photo quality (lighting, composition) is a significant adoption predictor &mdash; enabling targeted photography recommendations for harder-to-place animals.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-mental-health.html">

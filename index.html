@@ -203,6 +203,12 @@ nav{
 .cpfill{height:100%;background:var(--acc);transition:width .45s var(--ease);}
 .ccount{font-size:.62rem;letter-spacing:.1em;color:var(--text3);min-width:3.5rem;text-align:right;}
 
+/* ── IMPACT STRIP ───────────────────── */
+.impact-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--surf);}
+.imp-num{font-family:var(--f-d);font-size:clamp(1.9rem,3.5vw,3.2rem);font-weight:300;color:var(--acc);letter-spacing:-.02em;line-height:1;}
+.imp-lbl{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-top:.5rem;line-height:1.6;}
+@media(max-width:800px){.impact-strip{grid-template-columns:1fr 1fr;gap:1.5rem;}}
+
 /* ── EXPERIENCE ─────────────────────── */
 .exp-list{list-style:none;}
 .erow{
@@ -464,6 +470,12 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <p class="scrub-p" id="scrub-p">
     Software developer turned strategist. I build things — AI systems, iOS apps, full-stack products — then apply rigorous analytics to make them smarter. At Duke Fuqua, I'm sharpening the business lens on technical work that actually ships.
   </p>
+  <div class="impact-strip">
+    <div><div class="imp-num">$60M</div><div class="imp-lbl">Revenue impact identified<br>for NAPA client</div></div>
+    <div><div class="imp-num">67.3%</div><div class="imp-lbl">Out-of-sample accuracy,<br>World Cup 2026 forecasts</div></div>
+    <div><div class="imp-num">500+</div><div class="imp-lbl">Active users on a<br>shipped SaaS product</div></div>
+    <div><div class="imp-num">8</div><div class="imp-lbl">Client engagements<br>delivered end-to-end</div></div>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════
@@ -492,9 +504,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">RAG</span>
           </div>
           <div class="car-title">FuquaAssist — Institutional AI Chatbot</div>
-          <div class="car-desc">Engineered a Retrieval-Augmented Generation system using PyTorch and FAISS to index unstructured institutional data. Implemented a bi-encoder architecture with sliding-window chunking for semantic retrieval.</div>
+          <div class="car-desc">AI chatbot that answers questions about Duke Fuqua's programs, courses, and policies — answer accuracy boosted from 25% to 60%, hallucinations cut below 5%, with a custom retrieval pipeline.</div>
           <div class="car-more">
-            <p>Benchmarked embedding architectures against baseline LLMs — boosted exact-match accuracy from 25% to 60% and reduced hallucination rates to under 5%.</p>
+            <p>Under the hood: bi-encoder retrieval (PyTorch, FAISS) with sliding-window chunking, benchmarked against baseline LLMs. Live demo on the project page.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -515,9 +527,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">Strategy</span>
           </div>
           <div class="car-title">Constructing a Data-Driven Football Squad</div>
-          <div class="car-desc">Built Random Forest and K-Means models to identify undervalued, tactically diverse talent and replace subjective market speculation with evidence-based capital allocation.</div>
+          <div class="car-desc">Data-driven transfer strategy that allocated a $2.3M budget across a 25-player squad — replacing gut-feel market speculation with ML player valuation and mathematical optimization.</div>
           <div class="car-more">
-            <p>Implemented Integer Linear Programming to optimize a 25-player global roster within a $2.3M budget — deployed as a "Game Day Playbook" management decision-support tool.</p>
+            <p>Random Forest valuation + K-Means tactical profiling + Integer Linear Programming, delivered as a "Game Day Playbook" decision tool for management.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -538,9 +550,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">M&amp;A</span>
           </div>
           <div class="car-title">CVS Health Risk Assessment — C-Suite Report</div>
-          <div class="car-desc">Evaluated CVS's strategy using corporate scope and five forces frameworks to identify antitrust vulnerabilities, reputational risks, and high exposure to digital substitutes.</div>
+          <div class="car-desc">Strategy risk assessment presented to a C-suite audience: pinpointed the business units driving 70% of CVS's compliance flags and recommended a divestiture roadmap to cut regulatory exposure.</div>
           <div class="car-more">
-            <p>Analyzed operational data in Python to identify units comprising 70% of compliance flags — recommended divestiture strategy and a data-driven patient platform to rebuild trust, presented to C-suite.</p>
+            <p>Corporate scope + Five Forces analysis across pharmacy, insurance, and primary care, backed by Python analysis of operational compliance data.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -584,9 +596,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">Simulation</span>
           </div>
           <div class="car-title">AFCON 2025 — Tournament Prediction Engine</div>
-          <div class="car-desc">Full ML prediction system for the African Cup of Nations. Dual-model approach (Poisson + CNN) with 5,000-run Monte Carlo simulation, live result integration, and scenario analysis across all 24 teams.</div>
+          <div class="car-desc">ML forecasting engine that predicted AFCON 2025 as it happened — 63.5% match accuracy against real results, with automatic re-forecasts after every matchday. Live demo on the project page.</div>
           <div class="car-more">
-            <p>Outputs decision-ready Excel reports with match probabilities, group standings, knockout bracket projections, and champion odds — updated dynamically as results come in.</p>
+            <p>Dual models (Poisson + CNN), 5,000-run Monte Carlo simulation, and scenario analysis across all 24 teams — the foundation later adapted into the World Cup 2026 engine.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -630,9 +642,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">Survival Modeling</span>
           </div>
           <div class="car-title">Kitten Adoption Times — Shelter Prioritization</div>
-          <div class="car-desc">Hybrid survival model predicting days-to-adoption from intake metadata, medical records, and photos. Grad-CAM overlays show which visual cues make a kitten more or less adoptable.</div>
+          <div class="car-desc">Helps shelters get kittens adopted faster: predicts days-to-adoption from intake data and photos, cutting prediction error by ~2.4 days and turning model output into a staff to-do list.</div>
           <div class="car-more">
-            <p>Cut median absolute error by ~2.4 days vs baseline. Born from three personal fosters and a visit to Durham Animal Shelter.</p>
+            <p>Hybrid survival model with Grad-CAM interpretability showing which photo qualities (lighting, framing) speed up adoption — born from three personal fosters.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -653,9 +665,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">7-Class Model</span>
           </div>
           <div class="car-title">Mental Health Crisis Triage — Bi-LSTM</div>
-          <div class="car-desc">Seven-class Bi-LSTM classifying text into Suicidal, Depression, Anxiety, Bipolar, Stress, Personality Disorder, and Normal — trained on social media posts and forum threads.</div>
+          <div class="car-desc">Early-warning system that flags high-risk mental-health text in real time — 74% accuracy across seven clinical categories (vs 14% random), routing crisis cases to hotline alerts.</div>
           <div class="car-more">
-            <p>74% test accuracy (vs 14% random). Recall: Suicidal 0.62, Depression 0.66. Class-weighted loss handles severe data imbalance.</p>
+            <p>Bi-LSTM trained with class-weighted loss on heavily imbalanced data. Recall: Suicidal 0.62, Depression 0.66 — with learned comorbidity patterns.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -676,9 +688,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">Procurement</span>
           </div>
           <div class="car-title">Ethical Supplier Audit — ESG Risk Agent</div>
-          <div class="car-desc">Autonomous procurement agent that crawls live web results, extracts structured ESG incidents via GPT-4o, and computes a deterministic 0–100 risk scorecard with recency decay weighting.</div>
+          <div class="car-desc">Chrome extension + AI scoring API that turns any supplier's name into an evidence-backed 0–100 ESG risk score — automated due diligence for labor, environmental, and governance risk.</div>
           <div class="car-more">
-            <p>Pydantic schema enforcement prevents hallucinations. Python handles all scoring. Streamlit UI with Plotly gauge and expandable incident list.</p>
+            <p>GPT-4o extracts incidents under a strict Pydantic schema (no invented fields); deterministic Python scoring with recency weighting; FastAPI backend.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>
@@ -699,9 +711,9 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
             <span class="ctag">Backtesting</span>
           </div>
           <div class="car-title">Equity Portfolio Optimization — Systematic Construction</div>
-          <div class="car-desc">Four optimization strategies (HRP, Max Sharpe, Max Diversification, Black-Litterman) evaluated via rigorous walk-forward backtesting across S&P 500, FTSE, DAX, and Nikkei 225.</div>
+          <div class="car-desc">Systematic equity portfolio builder that stress-tests four optimization strategies with honest walk-forward backtests — HRP wins on drawdown control, and transaction costs erase most high-turnover alpha.</div>
           <div class="car-more">
-            <p>Barbell selection strategy. Realistic transaction cost modelling. Survivorship bias awareness. Factor exposure and risk contribution analytics.</p>
+            <p>HRP, Max Sharpe, Max Diversification, and Black-Litterman compared across S&P 500, FTSE, DAX, and Nikkei constituents, with realistic transaction costs and no look-ahead bias.</p>
           </div>
         </div>
         <div class="car-cta">View project ↗</div>

@@ -121,6 +121,29 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
   .p-meta{grid-template-columns:1fr 1fr;}
 }
+
+.p-exec{border:1px solid var(--acc-d);background:var(--bg-s);padding:1.4rem 1.6rem;margin-bottom:3rem;}
+.p-exec-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.5rem;}
+.p-exec p{font-family:var(--f-d);font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.5;margin:0;}
+
+.rmx-wrap{margin-top:.5rem;}
+.rmatrix{position:relative;height:300px;border-left:1px solid var(--surf2);border-bottom:1px solid var(--surf2);}
+.rmx-vline{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--surf);}
+.rmx-hline{position:absolute;top:50%;left:0;right:0;height:1px;background:var(--surf);}
+.rmx-dot{position:absolute;transform:translate(-50%,-50%);text-align:center;}
+.rmx-pt{display:block;width:12px;height:12px;border-radius:50%;background:var(--acc);margin:0 auto .45rem;box-shadow:0 0 0 4px rgba(168,204,232,.12);}
+.rmx-nm{font-size:.66rem;color:var(--text2);white-space:nowrap;}
+.rmx-axis{display:flex;justify-content:space-between;margin-top:.6rem;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);}
+
+.bviz{display:flex;flex-direction:column;gap:.55rem;margin-top:.5rem;}
+.bviz-row{display:flex;align-items:center;gap:1rem;}
+.bviz-lbl{font-size:.72rem;color:var(--text2);min-width:10rem;}
+.bviz-track{flex:1;height:18px;background:var(--bg-s);border:1px solid var(--surf);overflow:hidden;}
+.bviz-fill{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));}
+.bviz-fill.dim{background:var(--surf2);}
+.bviz-val{font-size:.72rem;color:var(--acc);min-width:3.2rem;text-align:right;}
+.bviz-val.dim{color:var(--text3);}
+.bviz-note{font-size:.66rem;color:var(--text3);margin-top:.8rem;letter-spacing:.04em;}
 </style>
 </head>
 <body>
@@ -151,7 +174,46 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
       <div class="p-stack"><span>Python</span><span>Excel</span><span>Five Forces</span><span>Corporate Scope</span><span>M&A Analysis</span></div>
     </div>
   </div>
-  <div class="p-content"><div class="p-section"><div class="p-section-lbl">Overview</div><p>CVS Health's aggressive vertical integration strategy — spanning pharmacy, insurance (Aetna), and primary care (Oak Street) — created significant strategic exposure. This project evaluated that strategy rigorously and delivered concrete recommendations on three interlocking risk vectors.</p></div><div class="p-section"><div class="p-section-lbl">Analysis</div><ul class="p-bullets"><li>Applied corporate scope and Porter's Five Forces frameworks to map CVS's competitive position across each business unit.</li><li>Identified significant antitrust vulnerabilities stemming from the Aetna acquisition and subsequent Oak Street deal — quantified regulatory exposure.</li><li>Flagged high exposure to digital substitutes (Amazon Pharmacy, telehealth platforms) undermining the traditional pharmacy model.</li><li>Used Python to analyse operational compliance data — surfaced that a small subset of units generated 70% of all compliance flags.</li></ul></div><div class="p-section"><div class="p-section-lbl">Recommendation</div><p>Recommended a two-part strategy: <strong>divest the high-compliance-risk units</strong> to reduce regulatory exposure and free capital, and <strong>invest in a data-driven patient platform</strong> that rebuilds consumer trust. Presented directly to C-suite.</p></div></div>
+  <div class="p-content">
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>A small subset of business units drove 70% of compliance flags — divesting them is the fastest way to cut CVS's regulatory exposure.</p></div>
+    <div class="p-section">
+      <div class="p-section-lbl">Overview</div>
+      <p>CVS Health's aggressive vertical integration &mdash; spanning pharmacy, insurance (Aetna), and primary care (Oak Street) &mdash; created significant strategic exposure. This project evaluated that strategy and delivered concrete recommendations to a C-suite audience across three interlocking risk vectors.</p>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Analysis</div>
+      <ul class="p-bullets">
+        <li><strong>Competitive mapping</strong> &mdash; corporate scope and Porter's Five Forces frameworks applied across each business unit.</li>
+        <li><strong>Antitrust exposure</strong> &mdash; quantified regulatory risk stemming from the Aetna acquisition and subsequent Oak Street deal.</li>
+        <li><strong>Digital substitution threat</strong> &mdash; high exposure to Amazon Pharmacy and telehealth platforms undermining the traditional pharmacy model.</li>
+        <li><strong>The 70% finding</strong> &mdash; Python analysis of operational compliance data showed a small subset of units generating 70% of all compliance flags.</li>
+      </ul>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Risk map</div>
+      <div class="rmx-wrap">
+        <div class="rmatrix">
+          <div class="rmx-vline"></div><div class="rmx-hline"></div>
+          <div class="rmx-dot" style="left:62%;top:18%;"><span class="rmx-pt"></span><span class="rmx-nm">Antitrust exposure</span></div>
+          <div class="rmx-dot" style="left:82%;top:38%;"><span class="rmx-pt"></span><span class="rmx-nm">Digital substitutes</span></div>
+          <div class="rmx-dot" style="left:45%;top:55%;"><span class="rmx-pt"></span><span class="rmx-nm">Reputational risk</span></div>
+        </div>
+        <div class="rmx-axis"><span>&#8593; Impact &middot; Likelihood &#8594;</span><span>assessed positioning</span></div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Where the compliance flags come from</div>
+      <div class="bviz">
+        <div class="bviz-row"><div class="bviz-lbl">High-risk units (small subset)</div><div class="bviz-track"><div class="bviz-fill" style="width:70%"></div></div><div class="bviz-val">70%</div></div>
+        <div class="bviz-row"><div class="bviz-lbl">All other units</div><div class="bviz-track"><div class="bviz-fill dim" style="width:30%"></div></div><div class="bviz-val dim">30%</div></div>
+        <div class="bviz-note">Share of total compliance flags &middot; Python analysis of operational data</div>
+      </div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-lbl">Recommendation</div>
+      <p>A two-part strategy: <strong>divest the high-compliance-risk units</strong> to reduce regulatory exposure and free capital, and <strong>invest in a data-driven patient platform</strong> that rebuilds consumer trust. Presented directly to a C-suite audience.</p>
+    </div>
+  </div>
 </div>
 
 <a class="p-next" href="project-freelance.html">
