@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AFCON 2025 Prediction Engine — Marwa Bouabid</title>
+<title>World Cup 2026 Prediction Engine — Marwa Bouabid</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none;}
 .p-cat{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;}
 .p-title{font-family:var(--f-d);font-size:clamp(2.75rem,8vw,8.5rem);font-weight:300;line-height:.88;letter-spacing:-.025em;margin-bottom:2rem;}
 .p-title em{font-style:italic;color:var(--text2);}
-.p-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.p-tags{display:flex;gap:.5rem;flex-wrap:wrap;}
 .p-tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--surf);padding:.3em .8em;color:var(--text2);}
 .p-tag.hi{border-color:var(--acc-d);color:var(--acc);}
 .p-embed{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--surf);}
@@ -45,9 +45,6 @@ a{color:inherit;text-decoration:none;}
 .p-embed-link{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2);cursor:none;transition:color .25s;}
 .p-embed-link:hover{color:var(--acc);}
 .p-embed iframe{display:block;width:100%;height:clamp(420px,70vh,720px);border:1px solid var(--surf2);background:var(--bg-s);}
-.p-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding-top:2rem;border-top:1px solid var(--surf);}
-.p-meta-cell p:first-child{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
-.p-meta-cell p:last-child{font-size:.8rem;color:var(--text2);}
 .p-body{display:grid;grid-template-columns:1fr 1.6fr;}
 .p-sidebar{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-right:1px solid var(--surf);position:sticky;top:73px;height:fit-content;}
 .p-side-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;}
@@ -60,26 +57,11 @@ a{color:inherit;text-decoration:none;}
 .p-section{margin-bottom:3.5rem;}
 .p-section-lbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--surf);}
 .p-section p{font-size:.9375rem;color:var(--text2);line-height:1.85;margin-bottom:1rem;}
+.p-section p:last-child{margin-bottom:0;}
 .p-section strong{color:var(--text);font-weight:400;}
 .p-bullets{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem;}
 .p-bullets li{font-size:.875rem;color:var(--text2);line-height:1.75;padding-left:1.2em;position:relative;}
 .p-bullets li::before{content:"—";position:absolute;left:0;color:var(--acc-d);}
-
-/* ── VIZ ── */
-.viz-section{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-top:1px solid var(--surf);}
-.viz-title{font-family:var(--f-d);font-size:clamp(1.5rem,3vw,2.8rem);font-weight:300;letter-spacing:-.015em;margin-bottom:.4rem;}
-.viz-title em{font-style:italic;color:var(--text2);}
-.viz-sub{font-size:.78rem;color:var(--text3);margin-bottom:2rem;letter-spacing:.04em;}
-
-/* Pipeline */
-.pipeline{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.5rem;}
-.pipe-node{background:var(--bg-s);border:1px solid var(--surf);padding:1.1rem 1.3rem;min-width:8.5rem;flex-shrink:0;}
-.pipe-node.hl{border-color:var(--acc-d);}
-.pipe-node-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:.3rem;}
-.pipe-node-name{font-family:var(--f-d);font-size:1rem;color:var(--text);font-style:italic;line-height:1.2;margin-bottom:.3rem;}
-.pipe-node-sub{font-size:.62rem;color:var(--text3);line-height:1.5;}
-.pipe-arr{display:flex;align-items:center;color:var(--text3);padding:0 .4rem;font-size:.85rem;flex-shrink:0;}
-
 .p-next{border-top:1px solid var(--surf);padding:3rem clamp(1.5rem,5vw,5rem);display:flex;align-items:center;justify-content:space-between;cursor:none;transition:background .35s;}
 .p-next:hover{background:var(--bg-s);}
 .p-next-lbl{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.4rem;}
@@ -89,63 +71,56 @@ a{color:inherit;text-decoration:none;}
 footer{border-top:1px solid var(--surf);padding:2.5rem clamp(1.5rem,5vw,5rem);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;}
 .f-logo{font-family:var(--f-d);font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);font-style:italic;}
 footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
-
 @media(max-width:960px){
   .p-body{grid-template-columns:1fr;}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
-  .p-meta{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-  .pipeline{flex-direction:column;}
-  .pipe-arr{transform:rotate(90deg);}
 }
 </style>
 </head>
 <body>
-<div id="cdot"></div><div id="cring"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
 
 <nav class="pnav">
   <a class="back-btn" href="index.html">
     <span class="back-arrow">&#8592;</span>
     Back to portfolio
   </a>
-  <span class="nav-label">05 / 10</span>
+  <span class="nav-label">06 / 10</span>
 </nav>
 
 <div class="p-hero">
-  <div class="p-cat">Machine Learning &middot; Sports Analytics &middot; AFCON 2025</div>
-  <h1 class="p-title">AFCON 2025<br><em>Prediction</em><br>Engine</h1>
+  <div class="p-cat">Machine Learning &middot; Sports Analytics &middot; FIFA World Cup 2026</div>
+  <h1 class="p-title">World Cup<br><em>2026</em><br>Prediction Engine</h1>
   <div class="p-tags">
     <span class="p-tag hi">ML / Predictive</span>
     <span class="p-tag">Poisson Model</span>
-    <span class="p-tag">CNN</span>
+    <span class="p-tag">Logistic Classifier</span>
     <span class="p-tag">Monte Carlo</span>
-    <span class="p-tag">Python</span>
-    <span class="p-tag">Live Data</span>
+    <span class="p-tag">Live Evaluation</span>
   </div>
 </div>
 
 <div class="p-embed">
   <div class="p-embed-head">
     <div class="p-embed-lbl">Live Demo — try it below</div>
-    <a class="p-embed-link" href="https://afcon-soccer-predict.replit.app/" target="_blank" rel="noopener">Open in new tab &#8599;</a>
+    <a class="p-embed-link" href="https://2dc31b59-b287-40e4-86be-00ff13bbaaee-00-2ql866p1xrlel.worf.replit.dev/" target="_blank" rel="noopener">Open in new tab &#8599;</a>
   </div>
-  <iframe src="https://afcon-soccer-predict.replit.app/" title="AFCON 2025 prediction engine live demo" loading="lazy" allow="clipboard-write"></iframe>
+  <iframe src="https://2dc31b59-b287-40e4-86be-00ff13bbaaee-00-2ql866p1xrlel.worf.replit.dev/" title="World Cup 2026 prediction engine live demo" loading="lazy" allow="clipboard-write"></iframe>
 </div>
 
 <div class="p-body">
   <div class="p-sidebar">
     <div class="p-side-label">Key numbers</div>
-    <div class="p-stat"><div class="p-stat-num">5,000</div><div class="p-stat-lbl">Monte Carlo simulations<br>per scenario</div></div>
-    <div class="p-stat"><div class="p-stat-num">2</div><div class="p-stat-lbl">Model approaches:<br>Poisson + CNN</div></div>
-    <div class="p-stat"><div class="p-stat-num">24</div><div class="p-stat-lbl">Teams modelled<br>across 6 groups</div></div>
-    <div class="p-stat"><div class="p-stat-num">152y</div><div class="p-stat-lbl">Historical match data<br>1872&ndash;2024</div></div>
+    <div class="p-stat"><div class="p-stat-num">67.3%</div><div class="p-stat-lbl">Out-of-sample accuracy<br>on 98 real matches</div></div>
+    <div class="p-stat"><div class="p-stat-num">73%</div><div class="p-stat-lbl">Accuracy in the<br>knockout rounds</div></div>
+    <div class="p-stat"><div class="p-stat-num">+19pts</div><div class="p-stat-lbl">Above frequency baseline<br>(48.0%)</div></div>
+    <div class="p-stat"><div class="p-stat-num">63.5%</div><div class="p-stat-lbl">Predecessor model<br>on AFCON 2025</div></div>
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
       <div class="p-stack">
-        <span>Python</span><span>scipy</span><span>TensorFlow</span>
-        <span>CNN / PyTorch</span><span>NumPy</span><span>pandas</span>
-        <span>matplotlib</span><span>openpyxl</span>
+        <span>Python</span><span>PyTorch</span><span>NumPy</span>
+        <span>pandas</span><span>Poisson GLM</span><span>Monte Carlo</span>
       </div>
     </div>
   </div>
@@ -153,75 +128,31 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <div class="p-content">
     <div class="p-section">
       <div class="p-section-lbl">Overview</div>
-      <p>An end-to-end machine learning system that forecasts AFCON 2025 — every match, group table, and knockout bracket, through to the champion. It pairs a Bayesian Poisson goal model with a neural network, runs 5,000 Monte Carlo tournament simulations, and <strong>re-forecasts automatically as real results come in</strong>.</p>
-      <p>I'm from Morocco, and Morocco hosted this AFCON — so while I attended matches over winter break, the model was predicting them. It started as an excuse to learn Monte Carlo methods and live data pipelines; it became a full forecasting product.</p>
+      <p>Probabilistic forecasts for the 2026 FIFA World Cup — built mid-tournament, during semifinals week, and <strong>scored live against the matches already played</strong>. The engine adapts my AFCON 2025 predictor (63.5% accuracy on that tournament) to the World Cup, pairing an opponent-adjusted Poisson model with a squad-market-value prior and simulating the remaining bracket through to championship odds.</p>
+      <p>Both models were trained only on data available before the tournament, so every reported number is honestly out-of-sample: <strong>67.3% accuracy across the 98 matches</strong> played through the quarterfinals.</p>
     </div>
     <div class="p-section">
       <div class="p-section-lbl">How it works</div>
       <ul class="p-bullets">
-        <li><strong>Team strength ratings</strong> &mdash; 152 years of international results (1872&ndash;2024), weighted by recency with Bayesian priors, produce attack and defence ratings for all 24 teams — plus a host-nation boost for Morocco.</li>
-        <li><strong>Match forecasting</strong> &mdash; a Poisson goal model converts ratings into win/draw/loss probabilities and most-likely scorelines for every fixture.</li>
-        <li><strong>A deep-learning second opinion</strong> &mdash; a convolutional neural network trained on team embeddings and recent-form features cross-checks the statistical model.</li>
-        <li><strong>Tournament simulation</strong> &mdash; 5,000 Monte Carlo runs of the full tournament yield each team's odds of reaching every stage, quarter-finals through champion.</li>
-        <li><strong>Live updates</strong> &mdash; real results are ingested via a CLI tool; group tables and all downstream forecasts refresh automatically as the tournament progresses.</li>
-        <li><strong>Scenario analysis</strong> &mdash; baseline vs. three alternative scenarios show how a single tight fixture can reshape the entire knockout bracket.</li>
+        <li><strong>Opponent-adjusted ratings</strong> &mdash; attack and defence ratings fit jointly over every team (Dixon-Coles-style alternating updates), with time-decay weighting and neutral-venue handling.</li>
+        <li><strong>Squad-value prior</strong> &mdash; ratings shrink toward Transfermarkt squad market values instead of a global average. The prior's weight was tuned on AFCON 2025 — a different tournament — so the World Cup evaluation stays untouched. This was the single biggest accuracy gain: +9 points over the results-only model.</li>
+        <li><strong>Classifier benchmark</strong> &mdash; a multinomial logistic model over learned team embeddings and point-in-time form features, built with a temporal validation split and no look-ahead leakage.</li>
+        <li><strong>Honest evaluation</strong> &mdash; scored on real tournament matches using accuracy, log loss, Brier score, and ranked probability score, against frequency and uniform baselines.</li>
+        <li><strong>Live bracket simulation</strong> &mdash; Monte Carlo over the remaining fixtures; refreshing the daily results dataset automatically narrows the simulation to what is still unplayed.</li>
       </ul>
     </div>
     <div class="p-section">
       <div class="p-section-lbl">Results &amp; takeaways</div>
-      <p>The engine delivers its forecasts through the live demo above — champion odds, group-finish projections, and per-match probability breakdowns — plus exportable Excel reports, all computed from live tournament data.</p>
-      <p>The project covers the <strong>full analytics lifecycle</strong>: sourcing and cleaning historical data, engineering features, comparing statistical and deep-learning models, quantifying uncertainty through simulation, and keeping predictions current as new data arrives.</p>
+      <p>The value-prior Poisson model reached <strong>67.3% accuracy — 73% in the knockout rounds</strong> — beating the results-only Poisson (58.2%), the classifier (52.0%), and both baselines on every metric. Championship odds for the remaining bracket update live in the demo above.</p>
+      <p>The project shows <strong>model validation done right</strong>: out-of-sample testing, temporal splits, calibrated probability metrics rather than accuracy alone, and hyperparameters tuned on a separate tournament to avoid leakage.</p>
     </div>
   </div>
 </div>
 
-<!-- ── PIPELINE ── -->
-<div class="viz-section">
-  <h2 class="viz-title">Model <em>Pipeline</em></h2>
-  <p class="viz-sub">From raw historical data to real-time tournament champion odds</p>
-  <div class="pipeline">
-    <div class="pipe-node">
-      <div class="pipe-node-lbl">Input</div>
-      <div class="pipe-node-name">Historical Data</div>
-      <div class="pipe-node-sub">152y of results<br>results.csv &middot; ~3.5MB</div>
-    </div>
-    <div class="pipe-arr">&#8594;</div>
-    <div class="pipe-node hl">
-      <div class="pipe-node-lbl">Feature Eng.</div>
-      <div class="pipe-node-name">Team Strength</div>
-      <div class="pipe-node-sub">Time-decay weights<br>Bayesian priors<br>Attack / Defence</div>
-    </div>
-    <div class="pipe-arr">&#8594;</div>
-    <div class="pipe-node">
-      <div class="pipe-node-lbl">Model A</div>
-      <div class="pipe-node-name">Poisson xG</div>
-      <div class="pipe-node-sub">8&times;8 goal grid<br>Win / Draw / Loss %<br>Top scorelines</div>
-    </div>
-    <div class="pipe-arr">+</div>
-    <div class="pipe-node">
-      <div class="pipe-node-lbl">Model B</div>
-      <div class="pipe-node-name">CNN Ensemble</div>
-      <div class="pipe-node-sub">Team embeddings<br>Form features<br>Class-weighted loss</div>
-    </div>
-    <div class="pipe-arr">&#8594;</div>
-    <div class="pipe-node hl">
-      <div class="pipe-node-lbl">Simulation</div>
-      <div class="pipe-node-name">Monte Carlo</div>
-      <div class="pipe-node-sub">5,000 runs<br>Full bracket<br>Stage odds</div>
-    </div>
-    <div class="pipe-arr">&#8594;</div>
-    <div class="pipe-node">
-      <div class="pipe-node-lbl">Output</div>
-      <div class="pipe-node-name">Reports + Viz</div>
-      <div class="pipe-node-sub">Excel workbooks<br>Champion odds<br>Group heatmaps</div>
-    </div>
-  </div>
-</div>
-
-<a class="p-next" href="project-worldcup.html">
+<a class="p-next" href="project-kitten.html">
   <div>
     <div class="p-next-lbl">Next project</div>
-    <div class="p-next-title">World Cup 2026 Prediction Engine</div>
+    <div class="p-next-title">Kitten Adoption Times</div>
   </div>
   <div class="p-next-arrow">&#8599;</div>
 </a>
@@ -248,7 +179,6 @@ document.querySelectorAll('a,button,.p-next').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
 });
-
 </script>
 </body>
 </html>
