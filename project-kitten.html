@@ -226,7 +226,7 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <p>Durham, NC &nbsp;&middot;&nbsp; &copy; 2025</p>
 </footer>
 <script>
-const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+const lenis = new Lenis({duration:0.7,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
 (function loop(t){lenis.raf(t);requestAnimationFrame(loop);})();
 const cdot=document.getElementById('cdot'),cring=document.getElementById('cring');
 let mx=0,my=0,rx=0,ry=0;
