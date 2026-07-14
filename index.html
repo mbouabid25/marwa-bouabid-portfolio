@@ -274,13 +274,6 @@ nav{
 .edu-acts-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.5rem;}
 .edu-act-item{font-size:.78rem;color:var(--text3);line-height:1.7;}
 
-/* ── SKILLS ─────────────────────────── */
-.skills-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1px;background:var(--surf);}
-.skill-cell{background:var(--bg);padding:1.4rem;transition:background .3s;}
-.skill-cell:hover{background:var(--bg-s);}
-.skill-cat{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.4rem;}
-.skill-name{font-size:.9rem;color:var(--text2);}
-
 /* ── VALUES (compact) ───────────────── */
 .val-pill{
   background:var(--bg);padding:1.5rem 1.75rem;
@@ -878,32 +871,6 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 </section>
 
 <!-- ══════════════════════════════════════
-     SKILLS
-══════════════════════════════════════ -->
-<section class="sec" id="skills">
-  <div class="slabel"><span>Technical Skills</span></div>
-
-  <div class="skills-wrap" id="skills-grid">
-    <div class="skill-cell"><div class="skill-cat">Programming</div><div class="skill-name">Python</div></div>
-    <div class="skill-cell"><div class="skill-cat">Programming</div><div class="skill-name">Java</div></div>
-    <div class="skill-cell"><div class="skill-cat">Programming</div><div class="skill-name">JavaScript</div></div>
-    <div class="skill-cell"><div class="skill-cat">Programming</div><div class="skill-name">C</div></div>
-    <div class="skill-cell"><div class="skill-cat">Mobile</div><div class="skill-name">Swift / iOS</div></div>
-    <div class="skill-cell"><div class="skill-cat">Data</div><div class="skill-name">SQL / MariaDB</div></div>
-    <div class="skill-cell"><div class="skill-cat">Analytics</div><div class="skill-name">R</div></div>
-    <div class="skill-cell"><div class="skill-cat">Visualization</div><div class="skill-name">Tableau</div></div>
-    <div class="skill-cell"><div class="skill-cat">Full-Stack</div><div class="skill-name">MERN Stack</div></div>
-    <div class="skill-cell"><div class="skill-cat">Full-Stack</div><div class="skill-name">Next.js</div></div>
-    <div class="skill-cell"><div class="skill-cat">Cloud</div><div class="skill-name">AWS (EC2, Bedrock)</div></div>
-    <div class="skill-cell"><div class="skill-cat">AI</div><div class="skill-name">PyTorch / RAG</div></div>
-    <div class="skill-cell"><div class="skill-cat">AI</div><div class="skill-name">FAISS / Pinecone</div></div>
-    <div class="skill-cell"><div class="skill-cat">ML</div><div class="skill-name">Random Forest / ILP</div></div>
-    <div class="skill-cell"><div class="skill-cat">Domain</div><div class="skill-name">Corporate Strategy</div></div>
-    <div class="skill-cell"><div class="skill-cat">Method</div><div class="skill-name">Agile Methodologies</div></div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
      VALUES
 ══════════════════════════════════════ -->
 <section class="sec" id="values">
@@ -1077,12 +1044,6 @@ function initAnims() {
   gsap.from(['#edu1','#edu2'], {
     yPercent:22, opacity:0, duration:.9, ease:'expo.out', stagger:.12,
     scrollTrigger:{ trigger:'#edu1', start:'top 88%', once:true }
-  });
-
-  /* 6 — Skills */
-  gsap.from('.skill-cell', {
-    opacity:0, y:12, duration:.55, ease:'expo.out', stagger:.025,
-    scrollTrigger:{ trigger:'#skills-grid', start:'top 88%', once:true }
   });
 
   /* 7 — Values */
