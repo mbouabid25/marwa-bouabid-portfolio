@@ -141,6 +141,21 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 .p-embed-link{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2);cursor:none;transition:color .25s;}
 .p-embed-link:hover{color:var(--acc);}
 .p-embed iframe{display:block;width:100%;height:clamp(480px,75vh,760px);border:1px solid var(--surf2);background:var(--bg-s);}
+
+.gal{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--surf);}
+.gal-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.gal-lbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);}
+.gal-dl{display:flex;gap:1.5rem;}
+.gal-dl a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2);cursor:none;transition:color .25s;}
+.gal-dl a:hover{color:var(--acc);}
+.gal-frame{border:1px solid var(--surf2);background:#FFFFFF;}
+.gal-frame img{display:block;width:100%;max-height:560px;object-fit:contain;}
+.gal-bar{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;padding-top:1rem;}
+.gal-cap{font-size:.78rem;color:var(--text2);line-height:1.65;}
+.gal-nav{display:flex;align-items:center;gap:.8rem;flex-shrink:0;}
+.gal-btn{width:36px;height:36px;border:1px solid var(--surf);border-radius:50%;background:none;color:var(--text2);font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s;}
+.gal-btn:hover{border-color:var(--acc);color:var(--acc);}
+.gal-count{font-size:.62rem;letter-spacing:.14em;color:var(--text3);}
 </style>
 </head>
 <body>
@@ -170,28 +185,47 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <iframe src="football-playbook.html" title="Game Day Playbook interactive demo" loading="lazy"></iframe>
 </div>
 
+<div class="gal">
+  <div class="gal-head">
+    <div class="gal-lbl">The Analysis &mdash; straight from R</div>
+    <div class="gal-dl">
+      <a href="docs/data-driven-squad-deck.pptx" download>Deck (PPTX) &#8595;</a>
+      <a href="docs/data-driven-squad-report.docx" download>Full report (DOCX) &#8595;</a>
+    </div>
+  </div>
+  <div class="gal-frame"><img id="gal-img" src="assets/football/model-rmse.png" alt="Analysis chart"></div>
+  <div class="gal-bar">
+    <div class="gal-cap" id="gal-cap"></div>
+    <div class="gal-nav">
+      <span class="gal-count" id="gal-count"></span>
+      <button class="gal-btn" id="gal-prev">&#8592;</button>
+      <button class="gal-btn" id="gal-next">&#8594;</button>
+    </div>
+  </div>
+</div>
+
 <div class="p-body">
   <div class="p-sidebar">
     <div class="p-side-label">Key results</div>
-    <div class="p-stat"><div class="p-stat-num">25</div><div class="p-stat-lbl">Players optimised<br>in final roster</div></div><div class="p-stat"><div class="p-stat-num">$2.3M</div><div class="p-stat-lbl">Budget constraint<br>respected exactly</div></div><div class="p-stat"><div class="p-stat-num">97%</div><div class="p-stat-lbl">Variance explained<br>by clustering model</div></div>
+    <div class="p-stat"><div class="p-stat-num">96%</div><div class="p-stat-lbl">R&sup2; of the Random Forest<br>valuation model</div></div><div class="p-stat"><div class="p-stat-num">18,207</div><div class="p-stat-lbl">Players screened<br>(FIFA 19 dataset)</div></div><div class="p-stat"><div class="p-stat-num">&euro;297M</div><div class="p-stat-lbl">Squad cost &mdash; under 15%<br>of the &euro;2B ceiling</div></div><div class="p-stat"><div class="p-stat-num">+17</div><div class="p-stat-lbl">Overall points vs<br>greedy baseline (ILP)</div></div>
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
       <div class="p-stack"><span>R</span><span>Random Forest</span><span>K-Means</span><span>ILP</span><span>ggplot2</span><span>dplyr</span></div>
     </div>
   </div>
   <div class="p-content">
-    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Turned a $2.3M transfer budget into an optimized 25-player squad — every pick backed by data rather than market hype.</p></div>
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>Built a globally optimal 25-man squad for €297M — under 15% of budget — with every signing backed by data rather than market hype.</p></div>
     <div class="p-section">
       <div class="p-section-lbl">Overview</div>
-      <p>Football clubs spend hundreds of millions on player transfers based largely on gut feel and hype. This project replaced that speculation with a data-driven framework that identifies undervalued, tactically diverse talent and optimises a 25-player squad within a hard budget constraint.</p>
+      <p>Football clubs spend hundreds of millions on transfers based largely on gut feel and hype. For the from-scratch club <strong>Durham Top Dogs F.C.</strong>, this project replaced that speculation with a data-driven pipeline built in R: screening 18,207 players (FIFA 19 dataset, 57 attributes) to find undervalued, tactically diverse talent and assemble a mathematically optimal 25-man squad.</p>
     </div>
     <div class="p-section">
       <div class="p-section-lbl">How it works</div>
       <ul class="p-bullets">
-        <li><strong>Player valuation</strong> &mdash; Random Forest models predict performance from historical data, surfacing statistically undervalued players across global leagues.</li>
-        <li><strong>Tactical profiling</strong> &mdash; K-Means clustering groups players into tactical archetypes by playing style, not just position labels.</li>
-        <li><strong>Budget optimization</strong> &mdash; Integer Linear Programming allocates the $2.3M budget across 25 roster spots under positional and tactical constraints.</li>
-        <li><strong>Validation</strong> &mdash; results checked against market valuations to quantify ROI over a comparable market-rate squad.</li>
+        <li><strong>Player valuation</strong> &mdash; a Random Forest (200 trees) predicts each player's objective market value; the gap between predicted and listed price flags hidden bargains. R&sup2; of 96%, with ~2.4&times; lower RMSE than LASSO or quantile regression.</li>
+        <li><strong>Tactical profiling</strong> &mdash; K-Means clustering groups players into four archetypes (Defensive Rocks, Creative Playmakers, Pacy Attackers, Solid Goalkeepers) so the squad is stylistically diverse, not just highly rated.</li>
+        <li><strong>Budget optimization</strong> &mdash; Integer Linear Programming selects the globally optimal 25-man squad under a &euro;2B cap and strict quotas (3 GK / 8 DEF / 8 MID / 6 FWD) &mdash; beating a greedy baseline by 17 overall points while committing just &euro;297M.</li>
+        <li><strong>Chemistry lineups</strong> &mdash; heuristic cohesion scores (+3 shared club, +1 shared nationality) generate three tactical XIs: balanced 4-4-2, defensive 5-3-2, and offensive 4-3-3.</li>
       </ul>
     </div>
     <div class="p-section">
@@ -201,14 +235,14 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
         <div class="pipe-arr">&#8594;</div>
         <div class="pipe-node"><div class="pipe-node-lbl">Step 2</div><div class="pipe-node-name">Profile</div><div class="pipe-node-sub">K-Means tactical<br>archetypes</div></div>
         <div class="pipe-arr">&#8594;</div>
-        <div class="pipe-node hl"><div class="pipe-node-lbl">Step 3</div><div class="pipe-node-name">Optimize</div><div class="pipe-node-sub">ILP &middot; $2.3M<br>25 players</div></div>
+        <div class="pipe-node hl"><div class="pipe-node-lbl">Step 3</div><div class="pipe-node-name">Optimize</div><div class="pipe-node-sub">ILP &middot; &euro;2B cap<br>25 players</div></div>
         <div class="pipe-arr">&#8594;</div>
         <div class="pipe-node"><div class="pipe-node-lbl">Deliverable</div><div class="pipe-node-name">Playbook</div><div class="pipe-node-sub">Game Day<br>decision tool</div></div>
       </div>
     </div>
     <div class="p-section">
       <div class="p-section-lbl">Results &amp; impact</div>
-      <p>The final deliverable was a <strong>&ldquo;Game Day Playbook&rdquo;</strong> &mdash; a management decision-support tool presenting the optimised squad with per-player justification, tactical fit analysis, and projected performance benchmarks: defensible, data-driven squad decisions instead of speculation.</p>
+      <p>The final deliverable was the <strong>&ldquo;Game Day Playbook&rdquo;</strong> you can explore above &mdash; the real optimised roster (Buffon at &euro;4M is the model’s signature bargain), three chemistry-optimised starting XIs, and data-backed set-piece and substitution calls. The full analysis charts and original documents are below.</p>
     </div>
   </div>
 </div>
@@ -242,6 +276,28 @@ document.querySelectorAll('a,button,.p-next').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
 });
+
+const GAL = [
+  ["assets/football/model-rmse.png","Model shoot-out — Random Forest earned the valuation job with roughly 2.4× lower RMSE than LASSO or quantile regression."],
+  ["assets/football/oob-error.png","Out-of-bag error stabilises around 200 trees — the forest size chosen to avoid overfitting without losing predictive power."],
+  ["assets/football/value-scatter.png","The value map: quality vs transfer cost. The top-left quadrant holds the undervalued bargains the model shortlists."],
+  ["assets/football/age-potential.png","Age vs potential — Marquinhos flagged as the top young talent worth investing in for future growth."],
+  ["assets/football/squad-profile.png","The assembled squad's attribute profile — strongest in strength (75.3) and passing (73.8)."],
+  ["assets/football/tactical-radar.png","Three tactical lineups compared: 5-3-2 strongest defensively, 4-3-3 in attack, 4-4-2 the most balanced."],
+  ["assets/football/replacement-sensitivity.png","Player importance — how far the team rating drops if each starter is unavailable. Thiago Silva and Buffon are most critical."],
+  ["assets/football/value-growth.png","Next-season value forecast — players above the diagonal are appreciating assets, smart targets for future windows."],
+];
+let gi = 0;
+function galShow(i){
+  gi = (i + GAL.length) % GAL.length;
+  document.getElementById('gal-img').src = GAL[gi][0];
+  document.getElementById('gal-cap').textContent = GAL[gi][1];
+  document.getElementById('gal-count').textContent = (gi+1) + ' / ' + GAL.length;
+}
+document.getElementById('gal-prev').addEventListener('click',()=>galShow(gi-1));
+document.getElementById('gal-next').addEventListener('click',()=>galShow(gi+1));
+galShow(0);
+
 </script>
 </body>
 </html>
