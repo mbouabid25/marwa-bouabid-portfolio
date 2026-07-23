@@ -187,13 +187,13 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 
 <div class="gal">
   <div class="gal-head">
-    <div class="gal-lbl">The Analysis &mdash; straight from R</div>
+    <div class="gal-lbl">The Deck &mdash; flip through the presentation</div>
     <div class="gal-dl">
       <a href="docs/data-driven-squad-deck.pptx" download>Deck (PPTX) &#8595;</a>
       <a href="docs/data-driven-squad-report.docx" download>Full report (DOCX) &#8595;</a>
     </div>
   </div>
-  <div class="gal-frame"><img id="gal-img" src="assets/football/model-rmse.png" alt="Analysis chart"></div>
+  <div class="gal-frame"><img id="gal-img" src="assets/football/slides/slide-1.png" alt="Deck slide"></div>
   <div class="gal-bar">
     <div class="gal-cap" id="gal-cap"></div>
     <div class="gal-nav">
@@ -278,14 +278,15 @@ document.querySelectorAll('a,button,.p-next').forEach(el=>{
 });
 
 const GAL = [
-  ["assets/football/model-rmse.png","Model shoot-out — Random Forest earned the valuation job with roughly 2.4× lower RMSE than LASSO or quantile regression."],
-  ["assets/football/oob-error.png","Out-of-bag error stabilises around 200 trees — the forest size chosen to avoid overfitting without losing predictive power."],
-  ["assets/football/value-scatter.png","The value map: quality vs transfer cost. The top-left quadrant holds the undervalued bargains the model shortlists."],
-  ["assets/football/age-potential.png","Age vs potential — Marquinhos flagged as the top young talent worth investing in for future growth."],
-  ["assets/football/squad-profile.png","The assembled squad's attribute profile — strongest in strength (75.3) and passing (73.8)."],
-  ["assets/football/tactical-radar.png","Three tactical lineups compared: 5-3-2 strongest defensively, 4-3-3 in attack, 4-4-2 the most balanced."],
-  ["assets/football/replacement-sensitivity.png","Player importance — how far the team rating drops if each starter is unavailable. Thiago Silva and Buffon are most critical."],
-  ["assets/football/value-growth.png","Next-season value forecast — players above the diagonal are appreciating assets, smart targets for future windows."],
+  ["assets/football/slides/slide-1.png","Title — Data-Driven Squad Construction: building the inaugural roster for Durham Top Dogs F.C."],
+  ["assets/football/slides/slide-2.png","Strategic overview — replacing transfer-market speculation with empirical data science, for ROI."],
+  ["assets/football/slides/slide-3.png","The 3-stage analytical engine: K-Means style identification, Random Forest value discovery, LP squad optimization."],
+  ["assets/football/slides/slide-4.png","Identifying targets — archetype distribution and the top undervalued players by value gap."],
+  ["assets/football/slides/slide-5.png","The result — the inaugural 25-man squad, with value scores and acquisition costs."],
+  ["assets/football/slides/slide-6.png","The playbook — chemistry-optimized starting XIs for balanced, defensive, and offensive scenarios."],
+  ["assets/football/slides/slide-7.png","In-game specialists — data-backed set-piece takers and impact substitutes."],
+  ["assets/football/slides/slide-8.png","Deployment — integrating the model with scouting as a decision-support tool."],
+  ["assets/football/slides/slide-9.png","Closing — data finds the value; the players provide the magic."],
 ];
 let gi = 0;
 function galShow(i){
