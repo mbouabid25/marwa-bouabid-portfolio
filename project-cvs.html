@@ -143,6 +143,21 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 .bviz-val{font-size:.72rem;color:var(--acc);min-width:3.2rem;text-align:right;}
 .bviz-val.dim{color:var(--text3);}
 .bviz-note{font-size:.66rem;color:var(--text3);margin-top:.8rem;letter-spacing:.04em;}
+
+.gal{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--surf);}
+.gal-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.gal-lbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);}
+.gal-dl{display:flex;gap:1.5rem;}
+.gal-dl a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2);cursor:none;transition:color .25s;}
+.gal-dl a:hover{color:var(--acc);}
+.gal-frame{border:1px solid var(--surf2);background:#FFFFFF;}
+.gal-frame img{display:block;width:100%;max-height:560px;object-fit:contain;}
+.gal-bar{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;padding-top:1rem;}
+.gal-cap{font-size:.78rem;color:var(--text2);line-height:1.65;}
+.gal-nav{display:flex;align-items:center;gap:.8rem;flex-shrink:0;}
+.gal-btn{width:36px;height:36px;border:1px solid var(--surf);border-radius:50%;background:none;color:var(--text2);font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s;}
+.gal-btn:hover{border-color:var(--acc);color:var(--acc);}
+.gal-count{font-size:.62rem;letter-spacing:.14em;color:var(--text3);}
 </style>
 </head>
 <body>
@@ -163,28 +178,49 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <div class="p-tags"><span class="p-tag hi">Corporate Strategy</span><span class="p-tag">Risk Analysis</span><span class="p-tag">M&A</span><span class="p-tag">Python</span><span class="p-tag">Five Forces</span></div>
 </div>
 
+<div class="gal">
+  <div class="gal-head">
+    <div class="gal-lbl">The Deck &mdash; flip through the strategy presentation</div>
+    <div class="gal-dl">
+      <a href="docs/cvs-strategy-deck.pptx" download>Deck (PPTX) &#8595;</a>
+      <a href="docs/cvs-industry-report.docx" download>Industry report (DOCX) &#8595;</a>
+    </div>
+  </div>
+  <div class="gal-frame"><img id="gal-img" src="assets/cvs/slides/slide-1.png" alt="Deck slide"></div>
+  <div class="gal-bar">
+    <div class="gal-cap" id="gal-cap"></div>
+    <div class="gal-nav">
+      <span class="gal-count" id="gal-count"></span>
+      <button class="gal-btn" id="gal-prev">&#8592;</button>
+      <button class="gal-btn" id="gal-next">&#8594;</button>
+    </div>
+  </div>
+</div>
+
 <div class="p-body">
   <div class="p-sidebar">
-    <div class="p-side-label">Key results</div>
-    <div class="p-stat"><div class="p-stat-num">70%</div><div class="p-stat-lbl">Compliance flags from<br>units flagged for divestiture</div></div><div class="p-stat"><div class="p-stat-num">3</div><div class="p-stat-lbl">Strategic risk vectors<br>identified and quantified</div></div><div class="p-stat"><div class="p-stat-num">C-Suite</div><div class="p-stat-lbl">Audience for final<br>recommendation deck</div></div>
+    <div class="p-side-label">Key numbers</div>
+    <div class="p-stat"><div class="p-stat-num">80%+</div><div class="p-stat-lbl">Of industry revenue<br>from prescription drugs</div></div>
+    <div class="p-stat"><div class="p-stat-num">53%</div><div class="p-stat-lbl">Of Americans ordered<br>prescriptions online (2023)</div></div>
+    <div class="p-stat"><div class="p-stat-num">3</div><div class="p-stat-lbl">Strategic pillars in the<br>final recommendation</div></div>
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
       <div class="p-stack"><span>Python</span><span>Excel</span><span>Five Forces</span><span>Corporate Scope</span><span>M&A Analysis</span></div>
     </div>
   </div>
   <div class="p-content">
-    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>A small subset of business units drove 70% of compliance flags — divesting them is the fastest way to cut CVS's regulatory exposure.</p></div>
+    <div class="p-exec"><span class="p-exec-lbl">Bottom line</span><p>CVS's greatest strength is its biggest liability — aggressive vertical integration. The refocus: govern the core, divest Omnicare, out-tech the disruptors.</p></div>
     <div class="p-section">
       <div class="p-section-lbl">Overview</div>
-      <p>CVS Health's aggressive vertical integration &mdash; spanning pharmacy, insurance (Aetna), and primary care (Oak Street) &mdash; created significant strategic exposure. This project evaluated that strategy and delivered concrete recommendations to a C-suite audience across three interlocking risk vectors.</p>
+      <p>CVS Health's aggressive vertical integration &mdash; pharmacy, insurance (Aetna), PBM (Caremark), and provider services (Oak Street, HealthHUB) &mdash; built a healthcare ecosystem no rival can match, and simultaneously became its biggest source of legal, financial, and reputational exposure. This strategy project diagnosed that tension and delivered a concrete refocus plan, framed for a board-level audience.</p>
     </div>
     <div class="p-section">
       <div class="p-section-lbl">Analysis</div>
       <ul class="p-bullets">
-        <li><strong>Competitive mapping</strong> &mdash; corporate scope and Porter's Five Forces frameworks applied across each business unit.</li>
-        <li><strong>Antitrust exposure</strong> &mdash; quantified regulatory risk stemming from the Aetna acquisition and subsequent Oak Street deal.</li>
-        <li><strong>Digital substitution threat</strong> &mdash; high exposure to Amazon Pharmacy and telehealth platforms undermining the traditional pharmacy model.</li>
-        <li><strong>The 70% finding</strong> &mdash; Python analysis of operational compliance data showed a small subset of units generating 70% of all compliance flags.</li>
+        <li><strong>Industry structure</strong> &mdash; a concentrated oligopoly where 80%+ of revenue comes from prescriptions; Porter's Five Forces shows high buyer power (PBM leverage), high supplier power, and high substitution risk.</li>
+        <li><strong>The core tension</strong> &mdash; the same integration that creates advantage (Aetna + Caremark + Oak Street) draws antitrust scrutiny and erodes public trust; the Omnicare unit became the cautionary tale, filing Chapter 11 after a federal judgment.</li>
+        <li><strong>Digital substitution</strong> &mdash; online prescription ordering is growing ~10% annually, with 53% of Americans ordering online in 2023; Amazon Pharmacy and telehealth bypass the traditional model.</li>
+        <li><strong>Competitive landscape</strong> &mdash; UnitedHealth (Optum) and Kaiser Permanente run the same integrated playbook, raising the bar for execution.</li>
       </ul>
     </div>
     <div class="p-section">
@@ -198,18 +234,14 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
         </div>
         <div class="rmx-axis"><span>&#8593; Impact &middot; Likelihood &#8594;</span><span>assessed positioning</span></div>
       </div>
-    </div>
-    <div class="p-section">
-      <div class="p-section-lbl">Where the compliance flags come from</div>
-      <div class="bviz">
-        <div class="bviz-row"><div class="bviz-lbl">High-risk units (small subset)</div><div class="bviz-track"><div class="bviz-fill" style="width:70%"></div></div><div class="bviz-val">70%</div></div>
+    </div><div class="bviz-val">70%</div></div>
         <div class="bviz-row"><div class="bviz-lbl">All other units</div><div class="bviz-track"><div class="bviz-fill dim" style="width:30%"></div></div><div class="bviz-val dim">30%</div></div>
         <div class="bviz-note">Share of total compliance flags &middot; Python analysis of operational data</div>
       </div>
     </div>
     <div class="p-section">
       <div class="p-section-lbl">Recommendation</div>
-      <p>A two-part strategy: <strong>divest the high-compliance-risk units</strong> to reduce regulatory exposure and free capital, and <strong>invest in a data-driven patient platform</strong> that rebuilds consumer trust. Presented directly to a C-suite audience.</p>
+      <p>A three-part refocus: <strong>deepen and govern the core integration</strong> (Aetna&ndash;Caremark&ndash;Oak Street) behind legal and ethical firewalls that demonstrate pro-competitive value; <strong>divest Omnicare</strong> &mdash; low coordination with the core, outsized legal risk, and sale proceeds that strengthen the balance sheet; and <strong>aggressively implement technology</strong> across the ecosystem to compete with Amazon and the telehealth wave rather than be displaced by it.</p>
     </div>
   </div>
 </div>
@@ -241,6 +273,34 @@ document.querySelectorAll('a,button,.p-next').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
 });
+
+const GAL = [
+  ["assets/cvs/slides/slide-1.png","Title — Strategic Refocus for CVS Health: vulnerabilities and opportunities of aggressive vertical integration."],
+  ["assets/cvs/slides/slide-2.png","Executive summary — a concentrated oligopoly where 80%+ of industry revenue is prescription-driven."],
+  ["assets/cvs/slides/slide-3.png","Five Forces — high buyer power (PBM leverage), high supplier power, high substitution risk, high barriers to entry."],
+  ["assets/cvs/slides/slide-4.png","The core challenge — leverage the integrated assets while building legal and ethical firewalls."],
+  ["assets/cvs/slides/slide-5.png","Diagnosis — the biggest strength is the biggest shortcoming: aggressive vertical integration."],
+  ["assets/cvs/slides/slide-6.png","Diagnosis — the financial consequences: margin compression, escalating legal costs, revenue erosion."],
+  ["assets/cvs/slides/slide-7.png","Recommendation 1 — deepen & govern the core integration (Aetna · Caremark · provider services)."],
+  ["assets/cvs/slides/slide-8.png","Recommendation 2 — divest Omnicare: low coordination with the core, outsized legal and antitrust risk."],
+  ["assets/cvs/slides/slide-9.png","The substitute threat — digital health and telehealth are reshaping consumer expectations."],
+  ["assets/cvs/slides/slide-10.png","Recommendation 3 — aggressively implement technology to compete with Amazon-class rivals."],
+  ["assets/cvs/slides/slide-11.png","Competitive landscape — vertical integration dominates; the \"front door\" to healthcare is widening."],
+  ["assets/cvs/slides/slide-12.png","Deepen & differentiate the integrated model to demonstrate pro-competitive value."],
+  ["assets/cvs/slides/slide-13.png","Activity-system map — how CVS's instruments, activities, and governance interlock."],
+  ["assets/cvs/slides/slide-14.png","Appendix — competitor deep-dives: UnitedHealth (Optum), Kaiser Permanente, and more."],
+  ["assets/cvs/slides/slide-15.png","References."]
+];
+let gi = 0;
+function galShow(i){
+  gi = (i + GAL.length) % GAL.length;
+  document.getElementById('gal-img').src = GAL[gi][0];
+  document.getElementById('gal-cap').textContent = GAL[gi][1];
+  document.getElementById('gal-count').textContent = (gi+1) + ' / ' + GAL.length;
+}
+document.getElementById('gal-prev').addEventListener('click',()=>galShow(gi-1));
+document.getElementById('gal-next').addEventListener('click',()=>galShow(gi+1));
+galShow(0);
 </script>
 </body>
 </html>
