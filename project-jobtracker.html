@@ -82,6 +82,21 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   .p-body{grid-template-columns:1fr;}
   .p-sidebar{position:static;border-right:none;border-bottom:1px solid var(--surf);}
 }
+
+.gal{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--surf);}
+.gal-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.gal-lbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);}
+.gal-dl{display:flex;gap:1.5rem;}
+.gal-dl a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2);cursor:none;transition:color .25s;}
+.gal-dl a:hover{color:var(--acc);}
+.gal-frame{border:1px solid var(--surf2);background:#FFFFFF;}
+.gal-frame img{display:block;width:100%;max-height:560px;object-fit:contain;}
+.gal-bar{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;padding-top:1rem;}
+.gal-cap{font-size:.78rem;color:var(--text2);line-height:1.65;}
+.gal-nav{display:flex;align-items:center;gap:.8rem;flex-shrink:0;}
+.gal-btn{width:36px;height:36px;border:1px solid var(--surf);border-radius:50%;background:none;color:var(--text2);font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s;}
+.gal-btn:hover{border-color:var(--acc);color:var(--acc);}
+.gal-count{font-size:.62rem;letter-spacing:.14em;color:var(--text3);}
 </style>
 </head>
 <body>
@@ -101,7 +116,7 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <h1 class="p-title">AI Job<br><em>Application</em><br>Tracker</h1>
   <div class="p-tags">
     <span class="p-tag hi">AI / LLM</span>
-    <span class="p-tag">Next.js</span>
+    <span class="p-tag">React + TypeScript</span>
     <span class="p-tag">Claude API</span>
     <span class="p-tag">Gmail &amp; Outlook</span>
     <span class="p-tag">OAuth</span>
@@ -116,6 +131,24 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <video src="assets/job-tracker-demo.mp4" controls muted autoplay loop playsinline preload="metadata"></video>
 </div>
 
+<div class="gal">
+  <div class="gal-head">
+    <div class="gal-lbl">The Deck &mdash; product overview</div>
+    <div class="gal-dl">
+      <a href="docs/job-tracker-deck.pdf" download>Deck (PDF) &#8595;</a>
+    </div>
+  </div>
+  <div class="gal-frame"><img id="gal-img" src="assets/jobtracker/slides/slide-1.png" alt="Deck slide"></div>
+  <div class="gal-bar">
+    <div class="gal-cap" id="gal-cap"></div>
+    <div class="gal-nav">
+      <span class="gal-count" id="gal-count"></span>
+      <button class="gal-btn" id="gal-prev">&#8592;</button>
+      <button class="gal-btn" id="gal-next">&#8594;</button>
+    </div>
+  </div>
+</div>
+
 <div class="p-body">
   <div class="p-sidebar">
     <div class="p-side-label">Key numbers</div>
@@ -126,8 +159,8 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
     <div style="margin-top:2rem;">
       <div class="p-side-label">Tech stack</div>
       <div class="p-stack">
-        <span>Next.js</span><span>Claude API</span><span>Gmail API</span>
-        <span>Outlook API</span><span>OAuth 2.0</span><span>SQLite</span>
+        <span>React 18 + Vite</span><span>Node.js + Express</span><span>PostgreSQL / Drizzle</span>
+        <span>Claude API</span><span>Google OAuth</span><span>Azure AD</span>
       </div>
     </div>
   </div>
@@ -142,10 +175,10 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
     <div class="p-section">
       <div class="p-section-lbl">How it works</div>
       <ul class="p-bullets">
-        <li><strong>Multi-inbox sync</strong> &mdash; link any number of Gmail and Outlook accounts with read-only OAuth scopes; all inboxes are scanned together.</li>
+        <li><strong>Multi-inbox sync</strong> &mdash; link any number of Gmail and Outlook accounts (Google OAuth 2.0 + Azure AD) with read-only scopes; tokens refresh silently, so sessions never drop.</li>
         <li><strong>AI classification</strong> &mdash; Claude extracts structured fields from each email and advances applications through Applied &#8594; Screening &#8594; Interview &#8594; Offer / Rejected as new mail arrives.</li>
         <li><strong>Built for real inboxes</strong> &mdash; metadata-only fetching, chunked API requests, and processed-email bookkeeping keep syncs fast and idempotent: old mail is never re-classified, and a failed classification is retried rather than lost.</li>
-        <li><strong>Stays current</strong> &mdash; auto-refresh every 30 minutes, one-click manual status overrides, CSV export, per-user SQLite persistence, and dark mode.</li>
+        <li><strong>Stays current</strong> &mdash; auto-refresh every 30 minutes, one-click manual status overrides, CSV export, PostgreSQL persistence (Drizzle ORM), and dark mode.</li>
       </ul>
     </div>
     <div class="p-section">
@@ -185,6 +218,26 @@ document.querySelectorAll('a,button,.p-next').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
 });
+
+const GAL = [
+  ["assets/jobtracker/slides/slide-1.png","Job Tracker — AI-powered job application pipeline: built, shipped, and in production."],
+  ["assets/jobtracker/slides/slide-2.png","The problem — application emails scatter across inboxes; statuses get buried in threads."],
+  ["assets/jobtracker/slides/slide-3.png","The solution — one-click inbox connection, Claude reads the emails, automatic classification, real-time pipeline."],
+  ["assets/jobtracker/slides/slide-4.png","Architecture — React + Vite frontend, Node/Express API, PostgreSQL via Drizzle, Claude as the AI layer."],
+  ["assets/jobtracker/slides/slide-5.png","Key capabilities — multi-inbox support, duplicate suppression, silent token refresh, secure sessions, full CRUD."],
+  ["assets/jobtracker/slides/slide-6.png","Tech stack — React 18 + TypeScript, Node.js + Express, PostgreSQL, Claude API, Google OAuth + Azure AD."],
+  ["assets/jobtracker/slides/slide-7.png","Built and shipped — a live, working application, not a prototype."],
+];
+let gi = 0;
+function galShow(i){
+  gi = (i + GAL.length) % GAL.length;
+  document.getElementById('gal-img').src = GAL[gi][0];
+  document.getElementById('gal-cap').textContent = GAL[gi][1];
+  document.getElementById('gal-count').textContent = (gi+1) + ' / ' + GAL.length;
+}
+document.getElementById('gal-prev').addEventListener('click',()=>galShow(gi-1));
+document.getElementById('gal-next').addEventListener('click',()=>galShow(gi+1));
+galShow(0);
 </script>
 </body>
 </html>
