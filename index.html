@@ -9,7 +9,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <style>
 /* ══════════════════════════════════════════
    TOKENS — PURPLE PALETTE
@@ -981,14 +980,8 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── LENIS ── */
-const lenis = new Lenis({
-  duration: 0.7,
-  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothWheel: true,
-});
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add(t => lenis.raf(t * 1000));
+/* native scrolling; stub keeps marquee code working */
+const lenis = { velocity: 0 };
 gsap.ticker.lagSmoothing(0);
 
 /* ── CURSOR ── */
