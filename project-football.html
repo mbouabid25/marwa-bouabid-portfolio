@@ -134,6 +134,13 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
 .pipe-node-sub{font-size:.62rem;color:var(--text3);line-height:1.5;}
 .pipe-arr{display:flex;align-items:center;color:var(--text3);padding:0 .4rem;font-size:.85rem;flex-shrink:0;}
 @media(max-width:600px){.pipeline{flex-direction:column;}.pipe-arr{transform:rotate(90deg);justify-content:center;padding:.3rem 0;}}
+
+.p-embed{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--surf);}
+.p-embed-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.5rem;}
+.p-embed-lbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);}
+.p-embed-link{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2);cursor:none;transition:color .25s;}
+.p-embed-link:hover{color:var(--acc);}
+.p-embed iframe{display:block;width:100%;height:clamp(480px,75vh,760px);border:1px solid var(--surf2);background:var(--bg-s);}
 </style>
 </head>
 <body>
@@ -153,6 +160,14 @@ footer p{font-size:.62rem;letter-spacing:.08em;color:var(--text3);}
   <h1 class="p-title">Data-Driven<br>Football<br><em>Squad</em><br></h1>
   <div class="p-tags"><span class="p-tag hi">Predictive Analytics</span><span class="p-tag">Optimization</span><span class="p-tag">Strategy</span><span class="p-tag">R</span><span class="p-tag">ILP</span></div>
   <div class="p-meta"><div class="p-meta-cell"><p>Type</p><p>Academic Project</p></div><div class="p-meta-cell"><p>Context</p><p>Capital Allocation</p></div><div class="p-meta-cell"><p>Stack</p><p>R, ILP, K-Means</p></div><div class="p-meta-cell"><p>Year</p><p>2025</p></div></div>
+</div>
+
+<div class="p-embed">
+  <div class="p-embed-head">
+    <div class="p-embed-lbl">Interactive Playbook — click around below</div>
+    <a class="p-embed-link" href="football-playbook.html" target="_blank" rel="noopener">Open full screen &#8599;</a>
+  </div>
+  <iframe src="football-playbook.html" title="Game Day Playbook interactive demo" loading="lazy"></iframe>
 </div>
 
 <div class="p-body">

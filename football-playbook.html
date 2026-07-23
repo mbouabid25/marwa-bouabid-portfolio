@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Day Playbook — Interactive Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04100A;--bg-s:#081A10;--surf:#0E2418;--surf2:#164030;
+  --text:#E8F8F0;--text2:#7AC0A0;--text3:#2A5240;
+  --acc:#8FD8B8;--acc-d:#3A9870;--gold:#E8CC7A;
+  --f-d:"Cormorant Garamond",Georgia,serif;
+  --f-b:"DM Sans",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--f-b);font-weight:300;font-size:15px;}
+.wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:0;min-height:100vh;}
+.left{padding:1.5rem;border-right:1px solid var(--surf);display:flex;flex-direction:column;gap:1rem;}
+.right{padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;overflow-y:auto;}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}
+.hd h1{font-family:var(--f-d);font-weight:300;font-size:1.5rem;font-style:italic;color:var(--acc);}
+.hd .sub{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);}
+.pitch-box{position:relative;flex:1;min-height:300px;}
+svg{width:100%;height:100%;display:block;}
+.pdot{cursor:pointer;}
+.pdot circle.body{fill:var(--surf2);stroke:var(--acc-d);stroke-width:1.5;transition:fill .2s,stroke .2s;}
+.pdot.sel circle.body{fill:var(--acc);stroke:var(--acc);}
+.pdot.sel text{fill:#04100A;}
+.pdot:hover circle.body{stroke:var(--acc);}
+.pdot text{fill:var(--text2);font-family:var(--f-b);font-size:9px;letter-spacing:.05em;text-anchor:middle;pointer-events:none;}
+.bench{display:flex;gap:.4rem;flex-wrap:wrap;}
+.bench-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);width:100%;margin-bottom:.2rem;}
+.chip{font-size:.62rem;letter-spacing:.08em;border:1px solid var(--surf2);padding:.35em .8em;color:var(--text2);cursor:pointer;background:none;font-family:var(--f-b);transition:all .2s;}
+.chip:hover{border-color:var(--acc);color:var(--acc);}
+.chip.sel{background:var(--acc);border-color:var(--acc);color:#04100A;}
+.panel-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-bottom:.6rem;}
+.pcard{border:1px solid var(--surf2);background:var(--bg-s);padding:1.25rem;}
+.pcard .pos{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);}
+.pcard .arch{font-family:var(--f-d);font-style:italic;font-weight:300;font-size:1.6rem;color:var(--acc);line-height:1.15;margin:.25rem 0 .75rem;}
+.rowline{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text2);padding:.4rem 0;border-top:1px solid var(--surf);}
+.rowline b{font-weight:500;color:var(--text);}
+.delta{display:inline-block;font-size:.62rem;letter-spacing:.1em;padding:.25em .7em;border:1px solid var(--acc-d);color:var(--acc);margin-top:.75rem;}
+.delta.over{border-color:#B8683A;color:#E8A87A;}
+.sbar{margin-top:.9rem;}
+.sbar .sl{display:flex;justify-content:space-between;font-size:.62rem;color:var(--text3);margin-bottom:.25rem;letter-spacing:.08em;}
+.sbar .tr{height:6px;background:var(--surf);overflow:hidden;}
+.sbar .fl{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));}
+.budget .seg-bar{display:flex;height:22px;gap:2px;margin:.5rem 0 .6rem;}
+.budget .seg{transition:opacity .2s;}
+.budget .leg{display:flex;flex-wrap:wrap;gap:.8rem;font-size:.62rem;color:var(--text3);}
+.budget .leg i{display:inline-block;width:8px;height:8px;margin-right:.35em;}
+.budget .tot{font-size:.72rem;color:var(--text2);margin-top:.6rem;}
+.budget .tot b{color:var(--gold);font-weight:500;}
+.note{font-size:.6rem;color:var(--text3);line-height:1.6;letter-spacing:.04em;border-top:1px solid var(--surf);padding-top:.8rem;}
+@media(max-width:760px){.wrap{grid-template-columns:1fr;}.left{border-right:none;border-bottom:1px solid var(--surf);}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="left">
+    <div class="hd">
+      <h1>Game Day Playbook</h1>
+      <span class="sub">ILP-optimized 4-3-3 &middot; click a player</span>
+    </div>
+    <div class="pitch-box">
+      <svg viewBox="0 0 700 440" id="pitch">
+        <rect x="8" y="8" width="684" height="424" fill="none" stroke="#164030" stroke-width="1.5" rx="4"/>
+        <line x1="350" y1="8" x2="350" y2="432" stroke="#164030" stroke-width="1.5"/>
+        <circle cx="350" cy="220" r="52" fill="none" stroke="#164030" stroke-width="1.5"/>
+        <rect x="8" y="120" width="86" height="200" fill="none" stroke="#164030" stroke-width="1.5"/>
+        <rect x="606" y="120" width="86" height="200" fill="none" stroke="#164030" stroke-width="1.5"/>
+        <g id="players"></g>
+      </svg>
+    </div>
+    <div class="bench">
+      <div class="bench-lbl">Bench &amp; rotation — 14 players</div>
+    </div>
+  </div>
+  <div class="right">
+    <div>
+      <div class="panel-lbl">Player detail</div>
+      <div class="pcard" id="pcard"></div>
+    </div>
+    <div class="budget">
+      <div class="panel-lbl">Budget allocation — $2.3M ceiling</div>
+      <div class="seg-bar" id="segbar"></div>
+      <div class="leg" id="seglegend"></div>
+      <div class="tot" id="budtotal"></div>
+    </div>
+    <div class="note">
+      Interactive demo of the delivered decision tool. Player data is <b>anonymized &amp; illustrative</b>, mirroring the structure of the original analysis — Random Forest valuation, K-Means archetype clustering, and Integer Linear Programming squad optimization (built in R).
+    </div>
+  </div>
+</div>
+
+<script>
+const SQUAD = [
+  // starters: [id, x, y, pos, archetype, cost($k), modelVal($k), atk, def, cre]
+  ["GK-1", 52, 220, "Goalkeeper",       "Sweeper Keeper",        120, 138, 22, 88, 55, true],
+  ["RB-2", 165, 70,  "Right Back",      "Overlapping Full-Back", 95, 129, 62, 71, 58, true],
+  ["CB-4", 150, 165, "Centre Back",     "Ball-Playing CB",       110, 152, 30, 90, 66, true],
+  ["CB-5", 150, 275, "Centre Back",     "No-Nonsense Stopper",   105, 118, 18, 93, 32, true],
+  ["LB-3", 165, 370, "Left Back",       "Inverted Full-Back",    90, 121, 55, 74, 63, true],
+  ["DM-6", 275, 220, "Defensive Mid",   "Deep-Lying Playmaker",  130, 176, 48, 78, 84, true],
+  ["CM-8", 385, 130, "Central Mid",     "Box-to-Box Engine",     125, 162, 70, 66, 72, true],
+  ["CM-10",385, 310, "Central Mid",     "Advanced Creator",      115, 158, 74, 42, 89, true],
+  ["RW-7", 520, 75,  "Right Wing",      "Pressing Wide Forward", 140, 187, 86, 45, 74, true],
+  ["ST-9", 560, 220, "Striker",         "Clinical Nine",         150, 196, 93, 25, 58, true],
+  ["LW-11",520, 365, "Left Wing",       "Inverted Winger",       135, 171, 88, 38, 79, true],
+  // bench
+  ["GK-12",0,0,"Goalkeeper","Shot-Stopper",           55, 61, 15, 82, 30, false],
+  ["CB-13",0,0,"Centre Back","Ball-Playing CB",        72, 95, 25, 84, 60, false],
+  ["CB-14",0,0,"Centre Back","No-Nonsense Stopper",    58, 63, 15, 86, 25, false],
+  ["RB-15",0,0,"Right Back","Overlapping Full-Back",   60, 78, 55, 68, 50, false],
+  ["LB-16",0,0,"Left Back","Defensive Full-Back",      54, 60, 40, 76, 42, false],
+  ["DM-17",0,0,"Defensive Mid","Ball-Winner",          75, 97, 35, 84, 51, false],
+  ["CM-18",0,0,"Central Mid","Box-to-Box Engine",      80, 106, 64, 60, 66, false],
+  ["CM-19",0,0,"Central Mid","Tempo Controller",       68, 88, 52, 55, 78, false],
+  ["AM-20",0,0,"Attacking Mid","Advanced Creator",     85, 114, 70, 32, 86, false],
+  ["RW-21",0,0,"Right Wing","Direct Dribbler",         78, 103, 80, 34, 68, false],
+  ["LW-22",0,0,"Left Wing","Wide Outlet",              66, 82, 74, 36, 60, false],
+  ["ST-23",0,0,"Striker","Target Nine",                88, 109, 84, 30, 44, false],
+  ["ST-24",0,0,"Striker","Super-Sub Poacher",          62, 84, 82, 20, 40, false],
+  ["UT-25",0,0,"Utility","Versatile Defender",         50, 66, 42, 70, 48, false],
+];
+const GROUPS = {Goalkeeper:"GK", "Centre Back":"DEF","Right Back":"DEF","Left Back":"DEF",
+ "Defensive Mid":"MID","Central Mid":"MID","Attacking Mid":"MID",
+ "Right Wing":"FWD","Left Wing":"FWD","Striker":"FWD","Utility":"DEF"};
+const GCOLORS = {GK:"#3A9870", DEF:"#2A6850", MID:"#8FD8B8", FWD:"#E8CC7A"};
+
+const g = document.getElementById('players');
+const bench = document.querySelector('.bench');
+let selId = "ST-9";
+
+SQUAD.filter(p=>p[10]).forEach(p=>{
+  const el = document.createElementNS('http://www.w3.org/2000/svg','g');
+  el.setAttribute('class','pdot'); el.dataset.id = p[0];
+  el.innerHTML = `<circle class="body" cx="${p[1]}" cy="${p[2]}" r="17"/>
+    <text x="${p[1]}" y="${p[2]+3.5}">${p[0].split('-')[1]}</text>
+    <text x="${p[1]}" y="${p[2]+32}" style="font-size:8px;fill:#2A5240;">${p[0]}</text>`;
+  el.addEventListener('click',()=>select(p[0]));
+  g.appendChild(el);
+});
+SQUAD.filter(p=>!p[10]).forEach(p=>{
+  const b = document.createElement('button');
+  b.className='chip'; b.textContent=p[0]; b.dataset.id=p[0];
+  b.addEventListener('click',()=>select(p[0]));
+  bench.appendChild(b);
+});
+
+function money(k){ return k>=1000 ? '$'+(k/1000).toFixed(2)+'M' : '$'+k+'k'; }
+
+function select(id){
+  selId = id;
+  document.querySelectorAll('.pdot').forEach(d=>d.classList.toggle('sel', d.dataset.id===id));
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('sel', c.dataset.id===id));
+  const p = SQUAD.find(q=>q[0]===id);
+  const delta = Math.round((p[6]-p[5])/p[5]*100);
+  document.getElementById('pcard').innerHTML = `
+    <div class="pos">${p[0]} &middot; ${p[3]} ${p[10]?'&middot; Starter':'&middot; Bench'}</div>
+    <div class="arch">${p[4]}</div>
+    <div class="rowline"><span>Acquisition cost</span><b>${money(p[5])}</b></div>
+    <div class="rowline"><span>Model valuation (RF)</span><b>${money(p[6])}</b></div>
+    <div class="delta${delta<0?' over':''}">${delta>=0?'undervalued +'+delta+'%':'overpriced '+delta+'%'}</div>
+    <div class="sbar"><div class="sl"><span>Attacking output</span><span>${p[7]}</span></div><div class="tr"><div class="fl" style="width:${p[7]}%"></div></div></div>
+    <div class="sbar"><div class="sl"><span>Defensive actions</span><span>${p[8]}</span></div><div class="tr"><div class="fl" style="width:${p[8]}%"></div></div></div>
+    <div class="sbar"><div class="sl"><span>Chance creation</span><span>${p[9]}</span></div><div class="tr"><div class="fl" style="width:${p[9]}%"></div></div></div>`;
+}
+
+// budget
+const totals = {GK:0,DEF:0,MID:0,FWD:0};
+SQUAD.forEach(p=>{ totals[GROUPS[p[3]]] += p[5]; });
+const spend = Object.values(totals).reduce((a,b)=>a+b,0);
+const segbar = document.getElementById('segbar');
+const legend = document.getElementById('seglegend');
+Object.entries(totals).forEach(([k,v])=>{
+  const s = document.createElement('div');
+  s.className='seg'; s.style.cssText=`width:${v/spend*100}%;background:${GCOLORS[k]};`;
+  s.title = `${k}: ${money(v)}`;
+  segbar.appendChild(s);
+  const l = document.createElement('span');
+  l.innerHTML = `<i style="background:${GCOLORS[k]}"></i>${k} ${money(v)}`;
+  legend.appendChild(l);
+});
+document.getElementById('budtotal').innerHTML =
+  `Total committed <b>${money(spend)}</b> of $2.30M &mdash; ${money(2300-spend)} held in reserve &middot; 25-man squad &middot; all positional constraints satisfied`;
+
+select(selId);
+</script>
+</body>
+</html>
